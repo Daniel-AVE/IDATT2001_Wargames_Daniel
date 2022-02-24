@@ -44,9 +44,11 @@ public abstract class Unit {
         return armor;
     }
 
-    public int setHealth(int health) {
+    public void setHealth(int health) {
         this.health = health;
-        return health;
+        if (health <= 0) {
+            throw new IllegalArgumentException("Unit health cannot be lower than 1");
+        }
     }
 
     @Override
