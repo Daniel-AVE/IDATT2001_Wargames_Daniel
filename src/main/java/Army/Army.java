@@ -1,3 +1,5 @@
+package Army;
+
 import Units.*;
 import java.util.*;
 
@@ -12,6 +14,9 @@ public class Army {
 
     public Army(String name, ArrayList<Unit> units) {
         this.units = new ArrayList<>();
+        if (units.isEmpty() || units == null) {
+            throw new IllegalArgumentException("Cannot add an empty list");
+        }
         this.name = name;
     }
 
@@ -39,6 +44,8 @@ public class Army {
     public void addAll(ArrayList<Unit> inputUnits) {
         for (Unit unit : inputUnits) {
             units.add(unit.copy());
+        } if (inputUnits.isEmpty() || inputUnits == null) {
+            throw new IllegalArgumentException("Arraylist is empty. Please add units to list");
         }
     }
 
@@ -58,7 +65,7 @@ public class Army {
 
     @Override
     public String toString() {
-        return "Army: " + this.getName() +
+        return "Army.Army: " + this.getName() +
                 "\nRemaining units: " + this.getUnitSizeByInt();
     }
 
