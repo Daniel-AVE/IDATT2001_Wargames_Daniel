@@ -8,7 +8,6 @@ import Units.CommanderUnit;
 import Units.InfantryUnit;
 import Units.RangedUnit;
 import org.junit.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class Army_test {
@@ -36,19 +35,7 @@ public class Army_test {
         assertFalse(army1.hasUnits());
         assertFalse(army2.hasUnits());
 
-        for (int i = 0; i < 500; i++) {
-            army1.add(new InfantryUnit("", 100));
-            army2.add(new InfantryUnit("", 100));
-        } for (int i = 0; i < 200; i++) {
-            army1.add(new RangedUnit("", 100));
-            army2.add(new RangedUnit("", 100));
-        } for (int i = 0; i < 100; i++) {
-            army1.add(new CavalryUnit("", 100));
-            army2.add(new CavalryUnit("", 100));
-        }
-
-        army1.add(new CommanderUnit("Janna Proudmoore", 180));
-        army2.add(new CommanderUnit("Sylvanas Windrunner", 180));
+        fillArmyWithUnits(army1, army2);
 
         assertTrue(army1.hasUnits());
         assertTrue(army2.hasUnits());
@@ -64,14 +51,7 @@ public class Army_test {
 
         ArrayList<Unit> fillArmyWithUnits = new ArrayList<>();
 
-        for (int i = 0; i < 500; i++) {
-            fillArmyWithUnits.add(new InfantryUnit("", 100));
-        } for (int i = 0; i < 200; i++) {
-            fillArmyWithUnits.add(new RangedUnit("", 100));
-        } for (int i = 0; i < 100; i++) {
-            fillArmyWithUnits.add(new CavalryUnit("", 100));
-        }
-        fillArmyWithUnits.add(new CommanderUnit("", 180));
+        fillArmyWithUnits(army1, army2);
 
         army1.addAll(fillArmyWithUnits);
         army2.addAll(fillArmyWithUnits);

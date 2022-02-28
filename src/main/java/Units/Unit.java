@@ -15,13 +15,13 @@ public abstract class Unit {
     }
 
     public void attack(Unit opponent) {
-        if (this.getHealth() <= 0) {
+        if (this.getHealth() < 1) {
             throw new IllegalArgumentException("You cannot attack with a dead unit!");
-        } else if (opponent.getHealth() <= 0) {
+        } else if (opponent.getHealth() < 1) {
             throw new IllegalArgumentException("You cannot attack a dead unit!");
         } else {
             try {
-                opponent.setHealth(opponent.getHealth() - (this.getAttack() + this.getAttackBonus()) + (opponent.getArmor() + opponent.getResistBonus()));
+                opponent.health = opponent.getHealth() - (this.getAttack() + this.getAttackBonus()) + (opponent.getArmor() + opponent.getResistBonus());
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
@@ -46,7 +46,7 @@ public abstract class Unit {
 
     public void setHealth(int health) {
         this.health = health;
-        if (health <= 0) {
+        if (this.health <= 0) {
             throw new IllegalArgumentException("Unit health cannot be lower than 1");
         }
     }
