@@ -11,8 +11,17 @@ import Units.RangedUnit;
 import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * The type Battle test.
+ */
 public class Battle_test {
 
+    /**
+     * Fill armies with units.
+     *
+     * @param army1 the army 1
+     * @param army2 the army 2
+     */
     public void fillArmiesWithUnits(Army army1, Army army2) {
         for (int i = 0; i < 500; i++) {
             army1.add(new InfantryUnit("", 100));
@@ -28,6 +37,11 @@ public class Battle_test {
         army2.add(new CommanderUnit("Sylvanas Windrunner", 180));
     }
 
+    /**
+     * Fill army with units.
+     *
+     * @param army1 the army 1
+     */
     public void fillArmyWithUnits(Army army1) {
         for (int i = 0; i < 500; i++) {
             army1.add(new InfantryUnit("", 100));
@@ -39,6 +53,9 @@ public class Battle_test {
         army1.add(new CommanderUnit("Jaina Proudmoore", 180));
     }
 
+    /**
+     * Simulate random battle.
+     */
     @Test
     public void simulateRandomBattle() {
         Army armyOne = new Army("Human");

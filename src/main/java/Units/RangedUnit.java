@@ -1,20 +1,45 @@
 package Units;
 
+/**
+ * The type Ranged unit.
+ */
 public class RangedUnit extends Unit {
     private int counter = 0;
 
+    /**
+     * Instantiates a new Ranged unit.
+     *
+     * @param name   the name
+     * @param health the health
+     * @param attack the attack
+     * @param armor  the armor
+     */
     public RangedUnit(String name, int health, int attack, int armor) {
         super(name, health, attack, armor);
     }
 
+    /**
+     * Instantiates a new Ranged unit.
+     *
+     * @param name   the name
+     * @param health the health
+     */
     public RangedUnit(String name, int health) {
         super(name, health, 15, 8);
     }
 
+    /**
+     * Gets counter.
+     *
+     * @return the counter
+     */
     public int getCounter() {
         return counter;
     }
 
+    /**
+     * Increase counter.
+     */
     public void increaseCounter() {
         counter++;
     }

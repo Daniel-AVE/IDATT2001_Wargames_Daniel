@@ -3,15 +3,29 @@ import Army.*;
 import Units.*;
 import java.util.*;
 
+/**
+ * The type Battle.
+ */
 public class Battle {
     private Army armyOne = new Army("Human");
     private Army armyTwo = new Army("Orc");
 
+    /**
+     * Instantiates a new Battle.
+     *
+     * @param armyOne the army one
+     * @param armyTwo the army two
+     */
     public Battle(Army armyOne, Army armyTwo) {
         this.armyOne = armyOne;
         this.armyTwo = armyTwo;
     }
 
+    /**
+     * Simulate random army.
+     *
+     * @return the army
+     */
     public Army simulateRandom() {
         while (armyOne.hasUnits() && armyTwo.hasUnits()) {
             Random randomInit = new Random();
@@ -38,6 +52,11 @@ public class Battle {
         return armyTwo;
     }
 
+    /**
+     * Simulate turnbased army.
+     *
+     * @return the army
+     */
     public Army simulateTurnbased() {
         int counter = 0;
         while (armyOne.hasUnits() && armyTwo.hasUnits()) {
