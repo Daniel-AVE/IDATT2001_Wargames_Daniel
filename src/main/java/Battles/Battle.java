@@ -4,7 +4,9 @@ import Units.*;
 import java.util.*;
 
 /**
- * The type Battle.
+ * The class Battle
+ * Contains methods to simulate a battle between two armies
+ * @Author Daniel Evensen
  */
 public class Battle {
     private Army armyOne = new Army("Human");
@@ -22,9 +24,16 @@ public class Battle {
     }
 
     /**
-     * Simulate random army.
+     * Method for simulating a battle between two armies, where the attack order of the armies are luck-bases
+     * Uses java util Random to give two different values at random
+     * If random number = 0, armyOne attacks armyTwo
+     * Only other option is for random number to equal 1, which means armyTwo will attack ArmyOne
+     * By having it randomised, and luck based, one army could attack up to multiple times before the other army attacks
      *
-     * @return the army
+     * Before returning values, it checks if armyOne has units left. If this is true, then it returns armyOne as the winner
+     * If armyOne doesn't have units left, that means armyTwo won, and armyTwo is what's returned as the winner.
+     *
+     * @return the winning army
      */
     public Army simulateRandom() {
         while (armyOne.hasUnits() && armyTwo.hasUnits()) {
@@ -53,7 +62,13 @@ public class Battle {
     }
 
     /**
-     * Simulate turnbased army.
+     * Method for simulating a turn-based battle. In case we don't want a luck-based battle, but a turn based battle.
+     *
+     * Uses an int counter, which increases for each iteration. Whenever the number from counter modulus 2 = 0, it's armyOne's turn to attack
+     * Whenever counter modulus 2 does not equal 0, that means it's armyTwo's turn to attack. This will switch up for every other number
+     * making this a turn based simulation
+     *
+     * Same as in the randomized simulation, it checks which armies has units left, and returns the army depending on that.
      *
      * @return the army
      */
@@ -84,6 +99,10 @@ public class Battle {
         return armyTwo;
     }
 
+    /**
+     * toString method for the class Battle
+     * @return returns a string with information about the battle taking place. I.e. which armies are fighting each other
+     */
     @Override
     public String toString() {
         return "Battle{" +

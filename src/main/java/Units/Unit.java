@@ -3,7 +3,8 @@ package Units;
 import java.util.Objects;
 
 /**
- * The type Unit.
+ * The super class for units
+ * @Author Daniel Evensen
  */
 public abstract class Unit {
     protected String name;
@@ -26,9 +27,11 @@ public abstract class Unit {
     }
 
     /**
-     * Attack.
+     * Method to be used when attacking opponents
+     * Throws new illegal argument exceptions whenever either this, or opponent unit is dead
+     * Uses try catch to make sure it works properly
      *
-     * @param opponent the opponent
+     * @param opponent opponent unit, in this case, the unit to be attacked
      */
     public void attack(Unit opponent) {
         if (this.getHealth() < 1) {
@@ -92,6 +95,10 @@ public abstract class Unit {
         }
     }
 
+    /**
+     * toString method which returns information about a unit
+     * @return returns a string of information
+     */
     @Override
     public String toString() {
         return "Unit:" +
@@ -102,26 +109,35 @@ public abstract class Unit {
     }
 
     /**
-     * Gets attack bonus.
+     * Abstract method for getting attack bonus
+     * Method is overrided in all classes which extends this super class
      *
-     * @return the attack bonus
+     * @return the attack bonus for the specific unit
      */
     public abstract int getAttackBonus();
 
     /**
-     * Gets resist bonus.
+     * Abstract method for getting resist bonus
+     * Method is overrided in all classes which extends this super class
      *
-     * @return the resist bonus
+     * @return the resist bonus for the specific unit
      */
     public abstract int getResistBonus();
 
     /**
-     * Copy unit.
+     * Abstract class for copying a unit
+     * Method is ovverided in all classes which extends this super class
+     * Is used to create a deep copy of all type of units in the army class
      *
-     * @return the unit
+     * @return the copy of a specific unit
      */
     public abstract Unit copy();
 
+    /**
+     * equals method
+     * @param o object you want to check if is equal
+     * @return returns a boolean of wheter this or object o is equal or not
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -130,6 +146,10 @@ public abstract class Unit {
         return health == unit.health && attack == unit.attack && armor == unit.armor && Objects.equals(name, unit.name);
     }
 
+    /**
+     * Hashcode method
+     * @return returns hashcode of object
+     */
     @Override
     public int hashCode() {
         return Objects.hash(name, health, attack, armor);

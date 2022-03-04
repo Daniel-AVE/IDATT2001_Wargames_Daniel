@@ -12,12 +12,13 @@ import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * The type Battle test.
+ * The test class for class Battle in package Battle
+ * @Author Daniel Evensen
  */
 public class Battle_test {
 
     /**
-     * Fill armies with units.
+     * Fill 2 armies with units.
      *
      * @param army1 the army 1
      * @param army2 the army 2
@@ -38,7 +39,8 @@ public class Battle_test {
     }
 
     /**
-     * Fill army with units.
+     * Fill 1 army with units.
+     * Used to test / simulate a battle of 1 full army against an army consisting of close to 0 units
      *
      * @param army1 the army 1
      */

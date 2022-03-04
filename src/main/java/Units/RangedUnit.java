@@ -1,13 +1,15 @@
 package Units;
 
 /**
- * The type Ranged unit.
+ * The class RangedUnit which inherits from super class Unit
+ * @Author Daniel Evensen
  */
 public class RangedUnit extends Unit {
-    private int counter = 0;
+    private int counter = 0; // used for creating different values for resist bonus depending on attacking turn
 
     /**
      * Instantiates a new Ranged unit.
+     * Possible to edit attack and armor for this constructor
      *
      * @param name   the name
      * @param health the health
@@ -20,6 +22,7 @@ public class RangedUnit extends Unit {
 
     /**
      * Instantiates a new Ranged unit.
+     * This constructor has pre-specified values for attack and armor
      *
      * @param name   the name
      * @param health the health
@@ -44,11 +47,22 @@ public class RangedUnit extends Unit {
         counter++;
     }
 
+    /**
+     * Override of the abstract method getAttackBonus from super class
+     * @return returns a value for this method for this specific unit
+     */
     @Override
     public int getAttackBonus () {
         return 3;
     }
 
+    /**
+     * Override of the abstract method getResistBonus from super class
+     * If counter is 0, the value of resist bonus is higher, due to the ranged unit being farther away from battle
+     * If counter is 1, the value of resist bonus decreases a bit, due to opponent units closing in on ranged unit
+     * If counter is 2, the value of resist bonus decreases a bit more, due to opponent units having closed in fully on the ranged unit
+     * @return returns a value for this method for this specific unit
+     */
     @Override
     public int getResistBonus () {
         int resistBonus = 0;
@@ -65,11 +79,19 @@ public class RangedUnit extends Unit {
         return resistBonus;
     }
 
+    /**
+     * Override of the abstract method copy from super class
+     * @return returns a copy object of this specific unit
+     */
     @Override
     public RangedUnit copy () {
         return new RangedUnit(this.getName(), this.getHealth(), this.getAttack(), this.getArmor());
     }
 
+    /**
+     * toString method, adds another value to the toString from the super class for this specific unit
+     * @return returns new string
+     */
     @Override
     public String toString () {
         return "Ranged unit: " + super.toString();
