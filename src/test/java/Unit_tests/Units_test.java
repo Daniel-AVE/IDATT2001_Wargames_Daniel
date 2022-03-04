@@ -4,8 +4,21 @@ import org.junit.Test;
         import static org.junit.jupiter.api.Assertions.assertEquals;
         import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Test class for all Units classes within the Units package
+ * Testing all methods which makes sense to test
+ *
+ * @Author Daniel Evensen
+ */
 public class Units_test {
-
+        /**
+         * Attack test for InfantryUnit
+         * Also contains test for attack bonus, resist bonus and armor.
+         * Attack with attack and attack bonus - the armor and resist bonus of the opponent
+         *
+         * Uses assertEquals to make sure the opponent's remaining health is what it should be, depending on
+         * the attackers attack and attack bonus, and depending on opponent's armor and resist bonus
+         */
         @Test
         public void infantryAttackTest() {
                 InfantryUnit infantry1 = new InfantryUnit("Footman", 100);
@@ -21,6 +34,13 @@ public class Units_test {
                 assertEquals(88, infantry2.getHealth());
         }
 
+        /**
+         * Health change test for InfantryUnit
+         * Tests that the method setHealth works as it should
+         *
+         * Uses assertEquals for what is expected to work
+         * Uses assertThrows for what is expected to throw an exception
+         */
         @Test
         public void infantryHealthTest() {
                 InfantryUnit infantry1 = new InfantryUnit("Footman", 100);
@@ -33,6 +53,17 @@ public class Units_test {
                 assertThrows(IllegalArgumentException.class, () -> infantry1.setHealth(-2));
         }
 
+        /**
+         * Attack test for RangedUnit
+         * Also contains test for attack bonus, resist bonus and armor.
+         * Attack with attack and attack bonus - the armor and resist bonus of the opponent
+         *
+         * Also tests that the resist bonus works as it should by having higher resist bonus from first attack, and
+         * decreased resist bonus for following attacks
+         *
+         * Uses assertEquals to make sure the opponent's remaining health is what it should be, depending on
+         * the attackers attack and attack bonus, and depending on opponent's armor and resist bonus
+         */
         @Test
         public void rangedAttackTest() {
                 RangedUnit r1 = new RangedUnit("Archer", 100);
@@ -54,6 +85,13 @@ public class Units_test {
                 assertEquals(82, r4.getHealth());
         }
 
+        /**
+         * Health change test for RangedUnit
+         * Tests that the method setHealth works as it should
+         *
+         * Uses assertEquals for what is expected to work
+         * Uses assertThrows for what is expected to throw an exception
+         */
         @Test
         public void rangedHealthTest() {
                 RangedUnit r1 = new RangedUnit("Archer", 100);
@@ -65,6 +103,17 @@ public class Units_test {
                 assertThrows(IllegalArgumentException.class, () -> r1.setHealth(-2));
         }
 
+        /**
+         * Attack test for CavalryUnit
+         * Also contains test for attack bonus, resist bonus and armor.
+         * Attack with attack and attack bonus - the armor and resist bonus of the opponent
+         *
+         * Also tests that the attack bonus works as it should by having higher attack bonus for first attack, then
+         * a decreased attack bonus for all following attacks
+         *
+         * Uses assertEquals to make sure the opponent's remaining health is what it should be, depending on
+         * the attackers attack and attack bonus, and depending on opponent's armor and resist bonus
+         */
         @Test
         public void cavalryAttackTest() {
                 CavalryUnit c1 = new CavalryUnit("Knight", 100);
@@ -79,6 +128,13 @@ public class Units_test {
                 assertEquals(80, c1.getHealth());
         }
 
+        /**
+         * Health change test for CavalryUnit
+         * Tests that the method setHealth works as it should
+         *
+         * Uses assertEquals for what is expected to work
+         * Uses assertThrows for what is expected to throw an exception
+         */
         @Test
         public void cavalryHealthTest() {
                 CavalryUnit c1 = new CavalryUnit("Knight", 70);
@@ -90,6 +146,17 @@ public class Units_test {
                 assertThrows(IllegalArgumentException.class, () -> c1.setHealth(-2));
         }
 
+        /**
+         * Attack test for CommanderUnit
+         * Also contains test for attack bonus, resist bonus and armor.
+         * Attack with attack and attack bonus - the armor and resist bonus of the opponent
+         *
+         * Also tests that the attack bonus works as it should by having higher attack bonus for first attack, then
+         * a decreased attack bonus for all following attacks
+         *
+         * Uses assertEquals to make sure the opponent's remaining health is what it should be, depending on
+         * the attackers attack and attack bonus, and depending on opponent's armor and resist bonus
+         */
         @Test
         public void commanderAttackTest() {
                 CommanderUnit com1 = new CommanderUnit("Gul'Dan", 100);
@@ -104,6 +171,13 @@ public class Units_test {
                 assertEquals(76, com1.getHealth());
         }
 
+        /**
+         * Health change test for CommanderUnit
+         * Tests that the method setHealth works as it should
+         *
+         * Uses assertEquals for what is expected to work
+         * Uses assertThrows for what is expected to throw an exception
+         */
         @Test
         public void commanderHealthTest() {
                 CommanderUnit com1 = new CommanderUnit("Gul'Dan", 100);

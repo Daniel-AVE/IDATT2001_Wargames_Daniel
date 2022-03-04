@@ -1,7 +1,7 @@
 package Units;
 
 /**
- * The class CavalryUnit which inherits from CavalryUnit
+ * The class CommanderUnit which inherits from CavalryUnit
  * Meaning this class inherits from CavalryUnit which again inherits from super class Unit
  * @Author Daniel Evensen
  */

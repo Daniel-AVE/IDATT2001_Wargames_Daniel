@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class Battle_test {
 
     /**
-     * Fill 2 armies with units.
+     * Method to fill two armies with pre-set units to be used for tests
      *
      * @param army1 the army 1
      * @param army2 the army 2
@@ -41,6 +41,7 @@ public class Battle_test {
     /**
      * Fill 1 army with units.
      * Used to test / simulate a battle of 1 full army against an army consisting of close to 0 units
+     * Used to test the simulation of a random battle
      *
      * @param army1 the army 1
      */
@@ -56,7 +57,18 @@ public class Battle_test {
     }
 
     /**
-     * Simulate random battle.
+     * Test for checking if the winning army is the one we're expecting after simulating a random battle
+     * Although it's a random simulation, and after perhaps millions or billions of iterations, the army with 1 unit
+     * would get 1 single win, the chance of it is too small to pay any heed. But since there is that chance, there is
+     * a chance for the test to fail. Therefore there is a question if this test is needed or not since it's randomised,
+     * and we can not 100% predict the outcome of the battle.
+     *
+     * uses assertFalse to check that armies are empty before adding units to the armies
+     *
+     * uses assertTrue to check that armies now has units after adding units to the armies
+     *
+     * uses assertEquals to check that the winning army from simulateRandom method from Battle class is the same as the
+     * expected army.
      */
     @Test
     public void simulateRandomBattle() {
