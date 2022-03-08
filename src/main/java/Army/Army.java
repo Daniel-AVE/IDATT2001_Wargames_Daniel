@@ -2,6 +2,9 @@ package Army;
 
 import Units.*;
 import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * The class Army
@@ -126,6 +129,79 @@ public class Army {
         Random number = new Random();
 
         return units.get(number.nextInt(this.getUnitSizeByInt()));
+    }
+
+    /**
+     * method for getting infantry units in arraylist units
+     *
+     * Creates new arraylist to contain infantry units
+     * sets infantry unit arraylist equal to a stream method filtering through the arraylist, and using lambda expression
+     * to check for instances of class InfantryUnit in the arraylist units, gotten through deep copy
+     *
+     * @return returns arraylist of infantry units
+     */
+    public ArrayList<Unit> getInfantryUnit() {
+        ArrayList<Unit> infantryUnit;
+
+        infantryUnit = (ArrayList<Unit>) getAllUnits().stream()
+                .filter(p -> p instanceof InfantryUnit)
+                .collect(Collectors.toList());
+        return infantryUnit;
+    }
+
+    /**
+     * method for getting ranged units in arraylist units
+     *
+     * Creates new arraylist to contain ranged units
+     * sets ranged unit arraylist equal to a stream method filtering through the arraylist, and using lambda expression
+     * to check for instances of class RangedUnit in the arraylist units, gotten through deep copy
+     *
+     * @return returns arraylist of ranged units
+     */
+    public ArrayList<Unit> getRangedUnit() {
+        ArrayList<Unit> rangedUnit;
+
+        rangedUnit = (ArrayList<Unit>) getAllUnits().stream()
+                .filter(p -> p instanceof RangedUnit)
+                .collect(Collectors.toList());
+        return rangedUnit;
+    }
+
+    /**
+     * method for getting cavalry units in arraylist units
+     *
+     * Creates new arraylist to contain cavalry units
+     * sets cavalry unit arraylist equal to a stream method filtering through the arraylist, and using lambda expression
+     * to check for instances of class CavalryUnit in the arraylist units, gotten through deep copy
+     *
+     * @return returns arraylist of cavalry units
+     */
+    public ArrayList<Unit> getCavalryUnit() {
+        ArrayList<Unit> cavalryUnit;
+
+        cavalryUnit = (ArrayList<Unit>) getAllUnits().stream()
+                .filter(p -> p instanceof CavalryUnit)
+                .filter(p -> !(p instanceof CommanderUnit))
+                .collect(Collectors.toList());
+        return cavalryUnit;
+    }
+
+    /**
+     * method for getting commander units in arraylist units
+     *
+     * Creates new arraylist to contain commander units
+     * sets commander unit arraylist equal to a stream method filtering through the arraylist, and using lambda expression
+     * to check for instances of class CommanderUnit in the arraylist units, gotten through deep copy
+     *
+     * @return returns arraylist of commander units
+     */
+    public ArrayList<Unit> getCommanderUnit() {
+        ArrayList<Unit> commanderUnit;
+
+        commanderUnit = (ArrayList<Unit>) getAllUnits().stream()
+                .filter(p -> p instanceof CommanderUnit)
+                .collect(Collectors.toList());
+        return commanderUnit;
     }
 
     /**

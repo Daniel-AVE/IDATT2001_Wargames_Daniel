@@ -179,4 +179,72 @@ public class Army_test {
         army3.remove(army3.getRandom());
         assertFalse(army3.hasUnits());
     }
+
+    /**
+     * Test method for getting the correct amount of infantry units out from arraylist units
+     * expects 500 infantry units, and checks that up with the size of arraylist infantry units
+     *
+     * also check that arraylist is not empty, or doesn't pass through the number of another unit
+     */
+    @Test
+    public void testGetInfantryUnit() {
+        Army army1 = new Army("Human");
+        Army army2 = new Army("Orc");
+        fillArmyWithUnits(army1, army2);
+
+        assertEquals(500, army1.getInfantryUnit().size());
+        assertNotEquals(0, army1.getInfantryUnit().size());
+        assertNotEquals(200, army1.getInfantryUnit().size());
+    }
+
+    /**
+     * Test method for getting the correct amount of ranged units out from arraylist units
+     * expects 200 ranged units, and checks that up with the size of arraylist ranged units
+     *
+     * also check that arraylist is not empty, or doesn't pass through the number of another unit
+     */
+    @Test
+    public void testGetRangedUnit() {
+        Army army1 = new Army("Human");
+        Army army2 = new Army("Orc");
+        fillArmyWithUnits(army1, army2);
+
+        assertEquals(200, army1.getRangedUnit().size());
+        assertNotEquals(0, army1.getRangedUnit().size());
+        assertNotEquals(500, army1.getRangedUnit().size());
+    }
+
+    /**
+     * Test method for getting the correct amount of cavalry units out from arraylist units
+     * expects 100 ranged units, and checks that up with the size of arraylist cavalry units
+     *
+     * also check that arraylist is not empty, or doesn't pass through the number of another unit
+     */
+    @Test
+    public void testGetCavalryUnit() {
+        Army army1 = new Army("Human");
+        Army army2 = new Army("Orc");
+        fillArmyWithUnits(army1, army2);
+
+        assertEquals(100, army1.getCavalryUnit().size());
+        assertNotEquals(0, army1.getCavalryUnit().size());
+        assertNotEquals(1, army1.getCavalryUnit().size());
+    }
+
+    /**
+     * Test method for getting the correct amount of commander units out from arraylist units
+     * expects 1 commander unit, and checks that up with the size of arraylist commander units
+     *
+     * also check that arraylist is not empty, or doesn't pass through the number of another unit
+     */
+    @Test
+    public void testGetCommanderUnit() {
+        Army army1 = new Army("Human");
+        Army army2 = new Army("Orc");
+        fillArmyWithUnits(army1, army2);
+
+        assertEquals(1, army1.getCommanderUnit().size());
+        assertNotEquals(0, army1.getCommanderUnit().size());
+        assertNotEquals(100, army1.getCommanderUnit().size());
+    }
 }
