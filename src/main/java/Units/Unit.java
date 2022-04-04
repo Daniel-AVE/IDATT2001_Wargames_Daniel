@@ -19,6 +19,11 @@ public abstract class Unit {
      * @param armor  the armor
      */
     public Unit(String name, int health, int attack, int armor) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Unit name cannot be blank or empty");
+        } if (health == 0) {
+            throw new IllegalArgumentException("Health cannot be 0");
+        }
         this.name = name;
         this.attack = attack;
         this.armor = armor;

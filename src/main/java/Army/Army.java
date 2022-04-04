@@ -23,6 +23,9 @@ public class Army {
      * @param name the name
      */
     public Army(String name) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("Army name cannot be blank or empty");
+        }
         this.units = new ArrayList<>();
         this.name = name;
     }
