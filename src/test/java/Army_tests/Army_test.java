@@ -25,14 +25,14 @@ public class Army_test {
      */
     public void fillArmyWithUnits(Army army1, Army army2) {
         for (int i = 0; i < 500; i++) {
-            army1.add(new InfantryUnit("", 100));
-            army2.add(new InfantryUnit("", 100));
+            army1.add(new InfantryUnit("test1", 100));
+            army2.add(new InfantryUnit("test2", 100));
         } for (int i = 0; i < 200; i++) {
-            army1.add(new RangedUnit("", 100));
-            army2.add(new RangedUnit("", 100));
+            army1.add(new RangedUnit("test1", 100));
+            army2.add(new RangedUnit("test2", 100));
         } for (int i = 0; i < 100; i++) {
-            army1.add(new CavalryUnit("", 100));
-            army2.add(new CavalryUnit("", 100));
+            army1.add(new CavalryUnit("test1", 100));
+            army2.add(new CavalryUnit("test2", 100));
         }
         army1.add(new CommanderUnit("Jaina Proudmoore", 180));
         army2.add(new CommanderUnit("Sylvanas Windrunner", 180));
@@ -78,14 +78,14 @@ public class Army_test {
         ArrayList<Unit> fillArmy1WithUnits = new ArrayList<>();
         ArrayList<Unit> fillArmy2WithUnits = new ArrayList<>();
         for (int i = 0; i < 500; i++) {
-            fillArmy1WithUnits.add(new InfantryUnit("", 100));
-            fillArmy2WithUnits.add(new InfantryUnit("", 100));
+            fillArmy1WithUnits.add(new InfantryUnit("test1", 100));
+            fillArmy2WithUnits.add(new InfantryUnit("test2", 100));
         } for (int i = 0; i < 200; i++) {
-            fillArmy1WithUnits.add(new RangedUnit("", 100));
-            fillArmy2WithUnits.add(new RangedUnit("", 100));
+            fillArmy1WithUnits.add(new RangedUnit("test1", 100));
+            fillArmy2WithUnits.add(new RangedUnit("test2", 100));
         } for (int i = 0; i < 100; i++) {
-            fillArmy1WithUnits.add(new CavalryUnit("", 100));
-            fillArmy2WithUnits.add(new CavalryUnit("", 100));
+            fillArmy1WithUnits.add(new CavalryUnit("test1", 100));
+            fillArmy2WithUnits.add(new CavalryUnit("test2", 100));
         }
         fillArmy1WithUnits.add(new CommanderUnit("Jaina Proudmoore", 180));
         fillArmy2WithUnits.add(new CommanderUnit("Sylvanas Windrunner", 180));;
@@ -139,7 +139,7 @@ public class Army_test {
     public void createArmyWithNameAndArrayList() {
         ArrayList<Unit> armyList = new ArrayList<>();
 
-        armyList.add(new InfantryUnit("", 100));
+        armyList.add(new InfantryUnit("testUnit", 100));
 
         assertDoesNotThrow(() -> {
             Army army1 = new Army("Test", armyList);

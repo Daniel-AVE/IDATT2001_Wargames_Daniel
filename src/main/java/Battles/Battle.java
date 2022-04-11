@@ -19,6 +19,13 @@ public class Battle {
      * @param armyTwo the army two
      */
     public Battle(Army armyOne, Army armyTwo) {
+        if (armyOne == null || armyTwo == null) {
+            throw new IllegalArgumentException("Armies cannot be empty or null");
+        } if (!armyOne.hasUnits()) {
+            throw new IllegalArgumentException(armyOne.getName() + " needs units in order to battle");
+        } if (!armyTwo.hasUnits()) {
+            throw new IllegalArgumentException(armyTwo.getName() + " needs units in order to battle");
+        }
         this.armyOne = armyOne;
         this.armyTwo = armyTwo;
     }
@@ -40,18 +47,26 @@ public class Battle {
             Random randomInit = new Random();
             int randomNumber = randomInit.nextInt(2);
             if (randomNumber == 0) {
-                Unit randomUnit = armyTwo.getRandom();
-                armyOne.getRandom().attack(randomUnit);
+                try {
+                    Unit randomUnit = armyTwo.getRandom();
+                    armyOne.getRandom().attack(randomUnit);
 
-                if (randomUnit.getHealth() <= 0) {
-                    armyTwo.remove(randomUnit);
+                    if (randomUnit.getHealth() <= 0) {
+                        armyTwo.remove(randomUnit);
+                    }
+                } catch (IllegalArgumentException e) {
+                    e.getMessage();
                 }
             } else {
-                Unit randomUnit = armyOne.getRandom();
-                armyTwo.getRandom().attack(randomUnit);
+                try {
+                    Unit randomUnit = armyOne.getRandom();
+                    armyTwo.getRandom().attack(randomUnit);
 
-                if (randomUnit.getHealth() <= 0) {
-                    armyOne.remove(randomUnit);
+                    if (randomUnit.getHealth() <= 0) {
+                        armyOne.remove(randomUnit);
+                    }
+                } catch (IllegalArgumentException e) {
+                    e.getMessage();
                 }
             }
         }
@@ -78,18 +93,26 @@ public class Battle {
             counter++;
 
             if (counter % 2 == 0) {
-                Unit randomUnit = armyTwo.getRandom();
-                armyOne.getRandom().attack(randomUnit);
+                try {
+                    Unit randomUnit = armyTwo.getRandom();
+                    armyOne.getRandom().attack(randomUnit);
 
-                if (randomUnit.getHealth() >= 0) {
-                    armyTwo.remove(randomUnit);
+                    if (randomUnit.getHealth() >= 0) {
+                        armyTwo.remove(randomUnit);
+                    }
+                } catch (IllegalArgumentException e) {
+                    e.getMessage();
                 }
             } else {
-                Unit randomUnit = armyOne.getRandom();
-                armyTwo.getRandom().attack(randomUnit);
+                try {
+                    Unit randomUnit = armyOne.getRandom();
+                    armyTwo.getRandom().attack(randomUnit);
 
-                if (randomUnit.getHealth() >= 0) {
-                    armyOne.remove(randomUnit);
+                    if (randomUnit.getHealth() >= 0) {
+                        armyOne.remove(randomUnit);
+                    }
+                } catch (IllegalArgumentException e) {
+                    e.getMessage();
                 }
             }
         }
