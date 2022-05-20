@@ -1,7 +1,7 @@
-package Unit_tests;
-import Units.*;
+package edu.ntnu.idatt2001;
+
+import edu.ntnu.idatt2001.Units.*;
 import org.junit.jupiter.api.Test;
-import org.junit.Test;
         import static org.junit.jupiter.api.Assertions.assertEquals;
         import static org.junit.jupiter.api.Assertions.*;
 

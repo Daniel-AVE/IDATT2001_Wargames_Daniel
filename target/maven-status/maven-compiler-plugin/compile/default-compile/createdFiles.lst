@@ -1,0 +1,12 @@
+edu/ntnu/idatt2001/Units/CommanderUnit.class
+edu/ntnu/idatt2001/Army/Army.class
+edu/ntnu/idatt2001/mainApplication.class
+edu/ntnu/idatt2001/Units/Unit.class
+edu/ntnu/idatt2001/Units/CavalryUnit.class
+edu/ntnu/idatt2001/Units/InfantryUnit.class
+edu/ntnu/idatt2001/Battles/Battle.class
+edu/ntnu/idatt2001/mainController.class
+module-info.class
+edu/ntnu/idatt2001/army_file_managers/ArmyReader.class
+edu/ntnu/idatt2001/army_file_managers/ArmyWriter.class
+edu/ntnu/idatt2001/Units/RangedUnit.class

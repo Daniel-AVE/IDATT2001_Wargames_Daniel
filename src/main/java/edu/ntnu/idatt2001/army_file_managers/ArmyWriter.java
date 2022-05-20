@@ -4,9 +4,7 @@ import edu.ntnu.idatt2001.Army.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
+import java.nio.file.FileSystems;
 
 
 /**
@@ -17,20 +15,34 @@ import java.util.ArrayList;
 
 public class ArmyWriter {
 
-    private static final String NEWLINE_DELIMITER = "\n";
+    private static final String NEWLINE = "\n";
     private static final String COMMA_DELIMITER = ",";
 
     public ArmyWriter(){}
 
-    public void writeArmyToFile(Army army, File file) throws IOException{
+    public static void writeArmyToFile(Army army, File file) throws IOException{
         if (!file.getName().endsWith(".csv")){
             throw new IOException("Only .csv-files are supported, please make sure the file is a .csv-file");
         }
-
+        if (!(file.getPath().startsWith(FileSystems.getDefault().getPath("src","main", "resources", "army_files").toString()))) {
+            throw new IOException("File is not being written to src/main/resources/army_files. Please make sure it does so");
+        }
+        if (army == null) {
+            throw new IOException("Army is null");
+        }
+        String armyNameLine = army.getName();
         try (FileWriter fileWriter = new FileWriter(file)) {
-            for (int i = 0; i < army.getAllUnits().size(); i++) {
-                
-            }
+            fileWriter.write(armyNameLine + NEWLINE);
+            army.getAllUnits().forEach(unit -> {
+                try {
+                    fileWriter.write(unit.getClass().getSimpleName() + COMMA_DELIMITER + unit.getName() + COMMA_DELIMITER +
+                            unit.getHealth() + NEWLINE);
+                    } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            });
+        } catch (IOException e) {
+            System.out.println("Error occurred, could not write army to file" + e.getMessage());
         }
     }
 }

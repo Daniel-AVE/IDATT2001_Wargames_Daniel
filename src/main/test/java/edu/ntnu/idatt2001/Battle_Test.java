@@ -1,14 +1,11 @@
-package Battles_test;
-import Army.*;
-import Battles.*;
-import Units.*;
+package edu.ntnu.idatt2001;
+
+
+import edu.ntnu.idatt2001.Army.*;
+import edu.ntnu.idatt2001.Battles.*;
+import edu.ntnu.idatt2001.Units.*;
 import java.util.*;
 
-import Units.CavalryUnit;
-import Units.CommanderUnit;
-import Units.InfantryUnit;
-import Units.RangedUnit;
-import org.junit.Test;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

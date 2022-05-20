@@ -1,21 +1,20 @@
-package Army_tests;
-import Army.*;
-import Units.*;
-import java.util.*;
+package edu.ntnu.idatt2001;
 
-import resources.*;
-import Units.CavalryUnit;
-import Units.CommanderUnit;
-import Units.InfantryUnit;
-import Units.RangedUnit;
-import org.junit.Test;
+import edu.ntnu.idatt2001.Army.*;
+import edu.ntnu.idatt2001.Units.*;
+import java.io.File;
+import java.io.IOException;
+
+
+import edu.ntnu.idatt2001.army_file_managers.ArmyWriter;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class Army_Writer_Test {
+    public static String path = "src/main/resources/army_files/";
 
 
-    public void fillArmyWithUnits(Army army1, Army army2) {
+    public void fillArmiesWithUnits(Army army1, Army army2) {
         for (int i = 0; i < 500; i++) {
             army1.add(new InfantryUnit("test1", 100));
             army2.add(new InfantryUnit("test2", 100));
@@ -30,12 +29,64 @@ public class Army_Writer_Test {
         army2.add(new CommanderUnit("Sylvanas Windrunner", 180));
     }
 
+    public void fillArmyWithUnits(Army army1) {
+        for (int i = 0; i < 500; i++) {
+            army1.add(new InfantryUnit("test", 100));
+        } for (int i = 0; i < 200; i++) {
+            army1.add(new RangedUnit("test", 100));
+        } for (int i = 0; i < 100; i++) {
+            army1.add(new CavalryUnit("test", 100));
+        }
+        army1.add(new CommanderUnit("Jaina Proudmoore", 180));
+    }
+
     @Test
-    public void writeArmyToFile() {
-        Army army1 = new Army();
+    void testWriteArmyToFile() {
+        Army army1 = new Army("Human");
+        Army army2 = new Army("Orc");
+        fillArmiesWithUnits(army1, army2);
 
         assertDoesNotThrow(() -> {
-            writeArmyToFile(army1, army.csv);
-        })
+            ArmyWriter.writeArmyToFile(army1, new File("src/main/resources/army_files/human_army.csv"));
+        });
+    }
+
+    @Test
+    void testWriteArmyToWrongFormatFileThrowsException() {
+        Army army = new Army("Orc");
+
+        fillArmyWithUnits(army);
+
+        assertThrows(IOException.class, () -> {
+            ArmyWriter.writeArmyToFile(army, new File(path + "Orc_army.txt"));
+        });
+    }
+
+    @Test
+    void testWriteNullArmyToFileThrowsException() {
+        Army army = null;
+
+        assertThrows(IOException.class, () -> {
+            ArmyWriter.writeArmyToFile(army, new File(path + "Orc_army.csv"));
+        });
+    }
+
+    @Test
+    void testWriteEmptyArmyToFile() {
+        Army army = new Army("Empty");
+
+        assertDoesNotThrow( () -> {
+            ArmyWriter.writeArmyToFile(army, new File(path + "Empty_army.csv"));
+        });
+    }
+
+    @Test
+    void testWriteArmyToFileButWrongPathThrowsException() {
+        Army army = new Army("Wrong path");
+        fillArmyWithUnits(army);
+
+        assertThrows(IOException.class, () -> {
+           ArmyWriter.writeArmyToFile(army, new File("src/main/java/edu/ntnu/idatt2001/Army/wrong_path.csv"));
+        });
     }
 }
