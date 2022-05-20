@@ -9,13 +9,14 @@ import Units.CommanderUnit;
 import Units.InfantryUnit;
 import Units.RangedUnit;
 import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * The test class for class Battle in package Battle
  * @Author Daniel Evensen
  */
-public class Battle_test {
+public class Battle_Test {
 
     /**
      * Method to fill two armies with pre-set units to be used for tests

@@ -7,6 +7,7 @@ import Units.CavalryUnit;
 import Units.CommanderUnit;
 import Units.InfantryUnit;
 import Units.RangedUnit;
+import org.junit.jupiter.api.Test;
 import org.junit.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * @Author Daniel Evensen
  */
-public class Army_test {
+public class TestArmy {
 
     /**
      * method to fill two armies with pre-set units to be used for tests

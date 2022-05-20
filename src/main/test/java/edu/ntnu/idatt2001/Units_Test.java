@@ -1,5 +1,6 @@
 package Unit_tests;
 import Units.*;
+import org.junit.jupiter.api.Test;
 import org.junit.Test;
         import static org.junit.jupiter.api.Assertions.assertEquals;
         import static org.junit.jupiter.api.Assertions.*;
@@ -10,7 +11,7 @@ import org.junit.Test;
  *
  * @Author Daniel Evensen
  */
-public class Units_test {
+public class Units_Test {
         /**
          * Attack test for InfantryUnit
          * Also contains test for attack bonus, resist bonus and armor.
