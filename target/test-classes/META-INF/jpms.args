@@ -1,0 +1,4 @@
+--patch-module
+edu.ntnu.idatt2001.idatt2001_wargames_daniel_e=_
+--add-reads
+edu.ntnu.idatt2001.idatt2001_wargames_daniel_e=ALL-UNNAMED

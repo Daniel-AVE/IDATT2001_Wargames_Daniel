@@ -7,4 +7,10 @@ module edu.ntnu.idatt2001.idatt2001_wargames_daniel_e {
 
     opens edu.ntnu.idatt2001 to javafx.fxml;
     exports edu.ntnu.idatt2001;
+    opens edu.ntnu.idatt2001.Army;
+    opens edu.ntnu.idatt2001.IO;
+    opens edu.ntnu.idatt2001.Battles;
+    opens edu.ntnu.idatt2001.Terrain;
+    opens edu.ntnu.idatt2001.Unit_Factory;
+    opens edu.ntnu.idatt2001.Units;
 }
