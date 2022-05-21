@@ -2,6 +2,7 @@ package edu.ntnu.idatt2001.army_file_managers;
 
 import edu.ntnu.idatt2001.Army.*;
 import edu.ntnu.idatt2001.Units.*;
+import edu.ntnu.idatt2001.Unit_Factory.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -56,32 +57,6 @@ public class ArmyReader {
                     throw new IOException("Health is required to be in an integer format: " + e.getMessage());
                 }
 
-                switch (unit_Type) {
-
-                    case "InfantryUnit":
-                        unit = new InfantryUnit(unit_Name, unit_Health);
-                        isCorrectTypeOfUnit = true;
-                        break;
-
-                    case "RangedUnit":
-                        unit = new RangedUnit(unit_Name, unit_Health);
-                        isCorrectTypeOfUnit = true;
-                        break;
-
-                    case "CavalryUnit":
-                        unit = new CavalryUnit(unit_Name, unit_Health);
-                        isCorrectTypeOfUnit = true;
-                        break;
-
-                    case "CommanderUnit":
-                        unit = new CommanderUnit(unit_Name, unit_Health);
-                        isCorrectTypeOfUnit = true;
-                        break;
-                }
-
-                if (!isCorrectTypeOfUnit) {
-                    throw new IOException("Incorrect unit type. Please make sure unit is of type: Infantry, Ranged, Cavalry or Commander");
-                }
 
                 try {
                     army.add(unit);
