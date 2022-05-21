@@ -1,6 +1,7 @@
 package edu.ntnu.idatt2001.Battles;
 
 import edu.ntnu.idatt2001.Army.*;
+import edu.ntnu.idatt2001.Terrain.Terrain;
 import edu.ntnu.idatt2001.Units.*;
 
 import java.util.Random;
@@ -51,7 +52,7 @@ public class Battle {
             if (randomNumber == 0) {
                 try {
                     Unit randomUnit = armyTwo.getRandom();
-                    armyOne.getRandom().attack(randomUnit);
+                    armyOne.getRandom().attack(randomUnit, Terrain.plains);
 
                     if (randomUnit.getHealth() <= 0) {
                         armyTwo.remove(randomUnit);
@@ -62,7 +63,7 @@ public class Battle {
             } else {
                 try {
                     Unit randomUnit = armyOne.getRandom();
-                    armyTwo.getRandom().attack(randomUnit);
+                    armyTwo.getRandom().attack(randomUnit, Terrain.plains);
 
                     if (randomUnit.getHealth() <= 0) {
                         armyOne.remove(randomUnit);
@@ -97,7 +98,7 @@ public class Battle {
             if (counter % 2 == 0) {
                 try {
                     Unit randomUnit = armyTwo.getRandom();
-                    armyOne.getRandom().attack(randomUnit);
+                    armyOne.getRandom().attack(randomUnit, Terrain.plains);
 
                     if (randomUnit.getHealth() >= 0) {
                         armyTwo.remove(randomUnit);
@@ -108,7 +109,7 @@ public class Battle {
             } else {
                 try {
                     Unit randomUnit = armyOne.getRandom();
-                    armyTwo.getRandom().attack(randomUnit);
+                    armyTwo.getRandom().attack(randomUnit, Terrain.plains);
 
                     if (randomUnit.getHealth() >= 0) {
                         armyOne.remove(randomUnit);

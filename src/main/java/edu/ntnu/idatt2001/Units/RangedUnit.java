@@ -1,5 +1,7 @@
 package edu.ntnu.idatt2001.Units;
 
+import edu.ntnu.idatt2001.Terrain.*;
+
 /**
  * The class RangedUnit which inherits from super class Unit
  * @Author Daniel Evensen
@@ -52,7 +54,12 @@ public class RangedUnit extends Unit {
      * @return returns a value for this method for this specific unit
      */
     @Override
-    public int getAttackBonus () {
+    public int getAttackBonus (Terrain terrain) {
+        if (terrain == Terrain.hill) {
+            return 3 + 2;
+        } if (terrain == Terrain.forest) {
+            return 3 - 2;
+        }
         return 3;
     }
 
@@ -64,7 +71,7 @@ public class RangedUnit extends Unit {
      * @return returns a value for this method for this specific unit
      */
     @Override
-    public int getResistBonus () {
+    public int getResistBonus (Terrain terrain) {
         int resistBonus = 0;
 
         if (this.getCounter() == 0) {

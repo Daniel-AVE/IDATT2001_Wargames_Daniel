@@ -1,6 +1,7 @@
 package edu.ntnu.idatt2001.Units;
 
 import java.util.Objects;
+import edu.ntnu.idatt2001.Terrain.*;
 
 /**
  * The super class for units
@@ -38,14 +39,14 @@ public abstract class Unit {
      *
      * @param opponent opponent unit, in this case, the unit to be attacked
      */
-    public void attack(Unit opponent) {
+    public void attack(Unit opponent, Terrain terrain) {
         if (this.getHealth() < 1) {
             throw new IllegalArgumentException("You cannot attack with a dead unit!");
         } else if (opponent.getHealth() < 1) {
             throw new IllegalArgumentException("You cannot attack a dead unit!");
         } else {
             try {
-                opponent.health = opponent.getHealth() - (this.getAttack() + this.getAttackBonus()) + (opponent.getArmor() + opponent.getResistBonus());
+                opponent.health = opponent.getHealth() - (this.getAttack() + this.getAttackBonus(terrain)) + (opponent.getArmor() + opponent.getResistBonus(terrain));
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
@@ -119,7 +120,7 @@ public abstract class Unit {
      *
      * @return the attack bonus for the specific unit
      */
-    public abstract int getAttackBonus();
+    public abstract int getAttackBonus(Terrain terrain);
 
     /**
      * Abstract method for getting resist bonus
@@ -127,7 +128,7 @@ public abstract class Unit {
      *
      * @return the resist bonus for the specific unit
      */
-    public abstract int getResistBonus();
+    public abstract int getResistBonus(Terrain terrain);
 
     /**
      * Abstract class for copying a unit

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -22,7 +23,7 @@ public class ArmyReader {
 
     public ArmyReader() {}
 
-    public void readArmyFromFile(File file) throws IOException {
+    public Army readArmyFromFile(File file) throws IOException {
         if (!(file.getName().endsWith(".csv"))) {
             throw new IOException("Only .csv-files are supported, please make sure the file is a .csv-file");
         }
@@ -50,6 +51,7 @@ public class ArmyReader {
                 boolean isCorrectTypeOfUnit = false;
                 int unit_Health;
                 Unit unit = null;
+                UnitType unitType = null;
 
                 try {
                     unit_Health = Integer.parseInt(token[2]);
@@ -59,11 +61,16 @@ public class ArmyReader {
 
 
                 try {
-                    army.add(unit);
+                    unitType = UnitType.valueOf(unit_Type);
                 } catch (IllegalArgumentException e) {
                     e.printStackTrace();
                 }
+                army.add(Objects.requireNonNull(UnitFactory.createUnit(unitType, unit_Name, unit_Health)));
             }
+            return army;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        return null;
     }
 }

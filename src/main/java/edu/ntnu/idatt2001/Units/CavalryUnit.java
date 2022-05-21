@@ -1,5 +1,7 @@
 package edu.ntnu.idatt2001.Units;
 
+import edu.ntnu.idatt2001.Terrain.*;
+
 /**
  * The class CavalryUnit which inherits from super class Unit
  * @Author Daniel Evensen
@@ -54,13 +56,22 @@ public class CavalryUnit extends Unit {
      * @return returns a value for this method for this specific unit
      */
     @Override
-    public int getAttackBonus() {
+    public int getAttackBonus(Terrain terrain) {
         int attackBonus = 0;
 
         if (this.getCounter() == 0) {
             attackBonus = 6;
         } else {
             attackBonus = 2;
+        }
+        this.increaseCounter();
+
+        if (terrain == Terrain.plains) {
+            if (this.getCounter() == 0) {
+                attackBonus = 6 + 4;
+            } else {
+                attackBonus = 2 + 4;
+            }
         }
         this.increaseCounter();
 
@@ -72,7 +83,10 @@ public class CavalryUnit extends Unit {
      * @return returns a value for this method for this specific unit
      */
     @Override
-    public int getResistBonus() {
+    public int getResistBonus(Terrain terrain) {
+        if (terrain == Terrain.forest) {
+            return 0;
+        }
         return 2;
     }
 

@@ -1,5 +1,6 @@
 package edu.ntnu.idatt2001;
 
+import edu.ntnu.idatt2001.Terrain.Terrain;
 import edu.ntnu.idatt2001.Units.*;
 import org.junit.jupiter.api.Test;
         import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,6 +9,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Test class for all Units classes within the Units package
  * Testing all methods which makes sense to test
+ * Does not test for actual bonuses gotten from terrain.
  *
  * @Author Daniel Evensen
  */
@@ -25,13 +27,13 @@ public class Units_Test {
                 InfantryUnit infantry1 = new InfantryUnit("Footman", 100);
                 InfantryUnit infantry2 = new InfantryUnit("Footballer", 100);
 
-                infantry1.attack(infantry2);
+                infantry1.attack(infantry2, Terrain.hill);
                 assertEquals(94, infantry2.getHealth());
 
-                infantry2.attack(infantry1);
+                infantry2.attack(infantry1, Terrain.plains);
                 assertEquals(94, infantry1.getHealth());
 
-                infantry1.attack(infantry2);
+                infantry1.attack(infantry2, Terrain.plains);
                 assertEquals(88, infantry2.getHealth());
         }
 
@@ -72,17 +74,17 @@ public class Units_Test {
                 RangedUnit r3 = new RangedUnit("Arrow", 100);
                 RangedUnit r4 = new RangedUnit("Bow", 100);
 
-                r1.attack(r2);
+                r1.attack(r2, Terrain.plains);
                 assertEquals(96, r2.getHealth());
 
-                r2.attack(r1);
+                r2.attack(r1, Terrain.plains);
                 assertEquals(96, r1.getHealth());
 
-                r3.attack(r4);
+                r3.attack(r4, Terrain.plains);
                 assertEquals(96, r4.getHealth());
-                r3.attack(r4);
+                r3.attack(r4, Terrain.plains);
                 assertEquals(90, r4.getHealth());
-                r3.attack(r4);
+                r3.attack(r4, Terrain.plains);
                 assertEquals(82, r4.getHealth());
         }
 
@@ -120,12 +122,12 @@ public class Units_Test {
                 CavalryUnit c1 = new CavalryUnit("Knight", 100);
                 CavalryUnit c2 = new CavalryUnit("Raider", 100);
 
-                c1.attack(c2);
+                c1.attack(c2, Terrain.hill);
                 assertEquals(88, c2.getHealth());
 
-                c2.attack(c1);
+                c2.attack(c1, Terrain.hill);
                 assertEquals(88, c1.getHealth());
-                c2.attack(c1);
+                c2.attack(c1, Terrain.hill);
                 assertEquals(80, c1.getHealth());
         }
 
@@ -163,12 +165,12 @@ public class Units_Test {
                 CommanderUnit com1 = new CommanderUnit("Gul'Dan", 100);
                 CommanderUnit com2 = new CommanderUnit("Thrall", 100);
 
-                com1.attack(com2);
+                com1.attack(com2, Terrain.hill);
                 assertEquals(86, com2.getHealth());
 
-                com2.attack(com1);
+                com2.attack(com1, Terrain.hill);
                 assertEquals(86, com1.getHealth());
-                com2.attack(com1);
+                com2.attack(com1, Terrain.hill);
                 assertEquals(76, com1.getHealth());
         }
 

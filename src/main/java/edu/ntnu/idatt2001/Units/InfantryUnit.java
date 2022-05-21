@@ -1,5 +1,7 @@
 package edu.ntnu.idatt2001.Units;
 
+import edu.ntnu.idatt2001.Terrain.Terrain;
+
 /**
  * The class InfantryUnit which inherits from super class Unit
  * @Author Daniel Evensen
@@ -35,7 +37,10 @@ public class InfantryUnit extends Unit {
      * @return returns a value for this method for this specific unit
      */
     @Override
-    public int getAttackBonus() {
+    public int getAttackBonus(Terrain terrain) {
+        if (terrain == Terrain.forest) {
+            return 2 + 2;
+        }
         return 2;
     }
 
@@ -44,7 +49,10 @@ public class InfantryUnit extends Unit {
      * @return returns a value for this method for this specific unit
      */
     @Override
-    public int getResistBonus() {
+    public int getResistBonus(Terrain terrain) {
+        if (terrain == Terrain.forest) {
+            return 1 + 1;
+        }
         return 1;
     }
 

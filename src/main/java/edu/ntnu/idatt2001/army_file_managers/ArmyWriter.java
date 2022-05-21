@@ -1,10 +1,13 @@
 package edu.ntnu.idatt2001.army_file_managers;
 
 import edu.ntnu.idatt2001.Army.*;
+import edu.ntnu.idatt2001.Units.*;
+import edu.ntnu.idatt2001.Unit_Factory.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.FileSystems;
+import java.util.*;
 
 
 /**
