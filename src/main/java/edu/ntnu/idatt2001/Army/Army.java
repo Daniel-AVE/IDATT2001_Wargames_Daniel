@@ -209,6 +209,43 @@ public class Army {
     }
 
     /**
+     * method for getting wizard units in arraylist units
+     *
+     * Creates new arraylist to contain wizard units
+     * sets wizard unit arraylist equal to a stream method filtering through the arraylist, and using lambda expression
+     * to check for instances of class WizardUnit in the arraylist units, gotten through deep copy
+     *
+     * @return returns arraylist of wizard units
+     */
+    public ArrayList<Unit> getWizardUnit() {
+        ArrayList<Unit> wizardUnit;
+
+        wizardUnit = (ArrayList<Unit>) getAllUnits().stream()
+                .filter(p -> p instanceof WizardUnit)
+                .collect(Collectors.toList());
+        return wizardUnit;
+    }
+
+    /**
+     * method for getting swordmaster units in arraylist units
+     *
+     * Creates new arraylist to contain swordmaster units
+     * sets swordmaster unit arraylist equal to a stream method filtering through the arraylist, and using lambda expression
+     * to check for instances of class SwordmasterUnit in the arraylist units, gotten through deep copy
+     *
+     * @return returns arraylist of swordmaster units
+     */
+    public ArrayList<Unit> getSwordmasterUnit() {
+        ArrayList<Unit> swordmasterUnit;
+
+        swordmasterUnit = (ArrayList<Unit>) getAllUnits().stream()
+                .filter(p -> p instanceof SwordmasterUnit)
+                .collect(Collectors.toList());
+        return swordmasterUnit;
+    }
+
+
+    /**
      * toString method for the class Army
      * @return returns a string of information about the army, and it's remaining units
      */

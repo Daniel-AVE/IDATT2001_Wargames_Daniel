@@ -25,12 +25,21 @@ public class UnitFactory {
                 case CommanderUnit -> {
                     return new CommanderUnit(name, health);
                 }
+                case WizardUnit -> {
+                    return new WizardUnit(name, health);
+                }
+                case SwordmasterUnit -> {
+                    return new SwordmasterUnit(name, health);
+                }
             }
         }
         return null;
     }
 
-    public static List<Unit> createXAmountOfUnits(UnitType unitType, int numberOfUnits, String name, int health) {
+    public static ArrayList<Unit> createXAmountOfUnits(UnitType unitType, int numberOfUnits, String name, int health) {
+        if (numberOfUnits <= 0) {
+            throw new IllegalArgumentException("You cannot create an army with 0 or less units");
+        }
         ArrayList<Unit> listOfUnits = new ArrayList<>();
         for (int i = 0; i < numberOfUnits; i++) {
             listOfUnits.add(createUnit(unitType, name, health));

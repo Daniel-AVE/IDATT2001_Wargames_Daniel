@@ -27,7 +27,7 @@ public class Army_Reader_Test {
         });
 
         assert(army != null);
-        assertEquals(801, army.getUnitSizeByInt());
+        assertEquals(901, army.getUnitSizeByInt());
     }
 
     @Test

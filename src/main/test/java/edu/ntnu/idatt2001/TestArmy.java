@@ -4,6 +4,7 @@ import java.util.*;
 
 import edu.ntnu.idatt2001.Army.*;
 import edu.ntnu.idatt2001.Units.*;
+import edu.ntnu.idatt2001.Unit_Factory.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,6 +31,12 @@ public class TestArmy {
         } for (int i = 0; i < 100; i++) {
             army1.add(new CavalryUnit("test1", 100));
             army2.add(new CavalryUnit("test2", 100));
+        } for (int i = 0; i < 50; i++) {
+            army1.add(new WizardUnit("test1", 100));
+            army2.add(new WizardUnit("test2", 100));
+        } for (int i = 0; i < 50; i++) {
+            army1.add(new SwordmasterUnit("test1", 100));
+            army2.add(new SwordmasterUnit("test2", 100));
         }
         army1.add(new CommanderUnit("Jaina Proudmoore", 180));
         army2.add(new CommanderUnit("Sylvanas Windrunner", 180));
@@ -83,6 +90,12 @@ public class TestArmy {
         } for (int i = 0; i < 100; i++) {
             fillArmy1WithUnits.add(new CavalryUnit("test1", 100));
             fillArmy2WithUnits.add(new CavalryUnit("test2", 100));
+        } for (int i = 0; i < 50; i++) {
+            fillArmy1WithUnits.add(new WizardUnit("test1", 100));
+            fillArmy2WithUnits.add(new WizardUnit("test2", 100));
+        } for (int i = 0; i < 50; i++) {
+            fillArmy1WithUnits.add(new SwordmasterUnit("test1", 100));
+            fillArmy2WithUnits.add(new SwordmasterUnit("test2", 100));
         }
         fillArmy1WithUnits.add(new CommanderUnit("Jaina Proudmoore", 180));
         fillArmy2WithUnits.add(new CommanderUnit("Sylvanas Windrunner", 180));;
@@ -243,5 +256,27 @@ public class TestArmy {
         assertEquals(1, army1.getCommanderUnit().size());
         assertNotEquals(0, army1.getCommanderUnit().size());
         assertNotEquals(100, army1.getCommanderUnit().size());
+    }
+
+    @Test
+    public void testGetWizardUnit() {
+        Army army1 = new Army("Human");
+        Army army2 = new Army("Orc");
+        fillArmyWithUnits(army1, army2);
+
+        assertEquals(50, army1.getWizardUnit().size());
+        assertNotEquals(0, army1.getWizardUnit().size());
+        assertNotEquals(100, army1.getWizardUnit().size());
+    }
+
+    @Test
+    public void testGetSwordmasterUnit() {
+        Army army = new Army("Human");
+        ArrayList<Unit> swordmaster = UnitFactory.createXAmountOfUnits(UnitType.SwordmasterUnit, 70, "test", 100);
+        army.addAll(swordmaster);
+
+        assertEquals(70, army.getSwordmasterUnit().size());
+        assertNotEquals(0, army.getSwordmasterUnit().size());
+        assertNotEquals(100, army.getSwordmasterUnit().size());
     }
 }

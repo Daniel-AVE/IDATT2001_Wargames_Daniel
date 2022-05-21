@@ -24,6 +24,12 @@ public class Army_Writer_Test {
         } for (int i = 0; i < 100; i++) {
             army1.add(new CavalryUnit("test1", 100));
             army2.add(new CavalryUnit("test2", 100));
+        } for (int i = 0; i < 50; i++) {
+            army1.add(new WizardUnit("test1", 100));
+            army2.add(new WizardUnit("test2", 100));
+        } for (int i = 0; i < 50; i++) {
+            army1.add(new SwordmasterUnit("test1", 100));
+            army2.add(new SwordmasterUnit("test2", 100));
         }
         army1.add(new CommanderUnit("Jaina Proudmoore", 180));
         army2.add(new CommanderUnit("Sylvanas Windrunner", 180));
@@ -36,6 +42,10 @@ public class Army_Writer_Test {
             army1.add(new RangedUnit("test", 100));
         } for (int i = 0; i < 100; i++) {
             army1.add(new CavalryUnit("test", 100));
+        } for (int i = 0; i < 50; i++) {
+            army1.add(new WizardUnit("test1", 100));
+        } for (int i = 0; i < 50; i++) {
+            army1.add(new SwordmasterUnit("test1", 100));
         }
         army1.add(new CommanderUnit("Jaina Proudmoore", 180));
     }
@@ -48,6 +58,7 @@ public class Army_Writer_Test {
 
         assertDoesNotThrow(() -> {
             ArmyWriter.writeArmyToFile(army1, new File("src/main/resources/army_files/human_army.csv"));
+            ArmyWriter.writeArmyToFile(army2, new File(path + "orc_army.csv"));
         });
     }
 
