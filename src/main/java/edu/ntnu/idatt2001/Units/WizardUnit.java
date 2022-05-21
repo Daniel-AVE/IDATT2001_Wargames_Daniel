@@ -88,7 +88,7 @@ public class WizardUnit extends Unit {
             attackBonus = 0;
         }
 
-        if (terrain == Terrain.plains) {
+        if (terrain == Terrain.plains || terrain == Terrain.hill) {
             if (this.getAttackCounter() == 0) {
                 attackBonus = 12 + 3;
             } else if (this.getAttackCounter() == 1) {

@@ -125,5 +125,45 @@ public class Units_Attack_Test {
         com1.attack(com2, Terrain.forest);
         assertEquals(70, com2.getHealth());
     }
+
+    @Test
+    public void wizardAttackTest() {
+        WizardUnit w1 = new WizardUnit("Merlin", 100);
+        WizardUnit w2 = new WizardUnit("Lucas Traumen", 100);
+
+        w1.attack(w2, Terrain.forest);
+        assertEquals(91, w2.getHealth());
+        w1.attack(w2, Terrain.forest);
+        assertEquals(85, w2.getHealth());
+        w1.attack(w2, Terrain.forest);
+        assertEquals(80, w2.getHealth());
+
+        w2.attack(w1, Terrain.plains);
+        assertEquals(88, w1.getHealth());
+        w2.attack(w1, Terrain.hill);
+        assertEquals(79,w1.getHealth());
+        w2.attack(w1, Terrain.plains);
+        assertEquals(74,w1.getHealth());
+    }
+
+    @Test
+    public void swordmasterAttackTest() {
+        SwordmasterUnit s1 = new SwordmasterUnit("Kamiizumi Nobunatsa", 100);
+        SwordmasterUnit s2 = new SwordmasterUnit("Oda Nobunaga", 100);
+
+        s1.attack(s2, Terrain.hill);
+        assertEquals(96, s2.getHealth());
+        s1.attack(s2, Terrain.plains);
+        assertEquals(87, s2.getHealth());
+        s1.attack(s2, Terrain.plains);
+        assertEquals(74, s2.getHealth());
+
+        s2.attack(s1, Terrain.forest);
+        assertEquals(98, s1.getHealth());
+        s2.attack(s1, Terrain.forest);
+        assertEquals(91, s1.getHealth());
+        s2.attack(s1, Terrain.forest);
+        assertEquals(80, s1.getHealth());
+    }
 }
 

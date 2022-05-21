@@ -27,7 +27,7 @@ public class SwordmasterUnit extends Unit{
      * @param health the health
      */
     public SwordmasterUnit(String name, int health) {
-        super(name, health, 18, 16);
+        super(name, health, 20, 16);
     }
 
     /**
@@ -70,7 +70,7 @@ public class SwordmasterUnit extends Unit{
      * If counter is 1, the value of attack bonus increases a bit, due swordmaster getting close enough in range to start throwing attacks
      * If counter is 2, the value of attack bonus increases more, due to swordmaster having reached opponent units, being able to both attack and defend himself properly
      *
-     * 
+     *
      *
      * @return returns a value for this method for this specific unit
      */
@@ -81,9 +81,9 @@ public class SwordmasterUnit extends Unit{
         if (this.getAttackCounter() == 0) {
             attackBonus = 0;
         } else if (this.getAttackCounter() == 1) {
-            attackBonus = 5;
+            attackBonus = 7;
         } else {
-            attackBonus = 11;
+            attackBonus = 13;
         }
         this.increaseAttackCounter();
 
@@ -107,18 +107,18 @@ public class SwordmasterUnit extends Unit{
         if (this.getResistCounter() == 0) {
             resistBonus = 0;
         } else if (this.getResistCounter() == 1) {
-            resistBonus = 3;
+            resistBonus = 2;
         } else {
-            resistBonus = 5;
+            resistBonus = 4;
         }
 
         if (terrain == Terrain.forest) {
             if (this.getResistCounter() == 0) {
                 resistBonus = 0 + 2;
             } else if (this.getResistCounter() == 1) {
-                resistBonus = 3 + 2;
+                resistBonus = 2 + 2;
             } else {
-                resistBonus = 5 + 2;
+                resistBonus = 4 + 2;
             }
         }
 
