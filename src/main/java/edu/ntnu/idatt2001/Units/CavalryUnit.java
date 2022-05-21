@@ -64,7 +64,6 @@ public class CavalryUnit extends Unit {
         } else {
             attackBonus = 2;
         }
-        this.increaseCounter();
 
         if (terrain == Terrain.plains) {
             if (this.getCounter() == 0) {
