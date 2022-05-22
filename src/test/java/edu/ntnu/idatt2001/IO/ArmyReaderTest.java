@@ -8,7 +8,7 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ArmyReaderTest {
-    public static String path = "src/main/resources/army_files/";
+    public static String path = "src/main/resources/edu/ntnu/idatt2001/army_files/";
 
     @Test
     void testReadArmyFromFile() {

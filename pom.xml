@@ -115,7 +115,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                edu.ntnu.idatt2001.idatt2001_wargames_daniel_e/edu.ntnu.idatt2001.mainApplication
+                                edu.ntnu.idatt2001.idatt2001_wargames_daniel_e/edu.ntnu.idatt2001.WargamesMainApp
                             </mainClass>
                         </configuration>
                     </execution>

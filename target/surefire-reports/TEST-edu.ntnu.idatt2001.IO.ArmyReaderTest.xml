@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="edu.ntnu.idatt2001.IO.ArmyReaderTest" time="0.146" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="edu.ntnu.idatt2001.IO.ArmyReaderTest" time="0.169" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -11,7 +11,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="NO"/>
     <property name="sun.boot.library.path" value="/Users/danielevensen/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home/lib"/>
-    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter /Users/danielevensen/OneDrive - NTNU/Dataingeniør/V22/IDATT2001/IDATT2001_Wargames_Daniel_E/target/surefire 2022-05-21T22-52-26_152-jvmRun1 surefire1885225831764996958tmp surefire_016064559727274944137tmp"/>
+    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter /Users/danielevensen/OneDrive - NTNU/Dataingeniør/V22/IDATT2001/IDATT2001_Wargames_Daniel_E/target/surefire 2022-05-22T18-33-32_440-jvmRun1 surefire227688525606870628tmp surefire_06634881158643515256tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -54,8 +54,8 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testReadArmyFromNonExistentFile" classname="edu.ntnu.idatt2001.IO.ArmyReaderTest" time="0.004"/>
-  <testcase name="testReadArmyFromWrongFileFormat" classname="edu.ntnu.idatt2001.IO.ArmyReaderTest" time="0.004"/>
+  <testcase name="testReadArmyFromNonExistentFile" classname="edu.ntnu.idatt2001.IO.ArmyReaderTest" time="0.006"/>
+  <testcase name="testReadArmyFromWrongFileFormat" classname="edu.ntnu.idatt2001.IO.ArmyReaderTest" time="0.003"/>
   <testcase name="testReadArmyFromEmptyFile" classname="edu.ntnu.idatt2001.IO.ArmyReaderTest" time="0.002"/>
-  <testcase name="testReadArmyFromFile" classname="edu.ntnu.idatt2001.IO.ArmyReaderTest" time="0.121"/>
+  <testcase name="testReadArmyFromFile" classname="edu.ntnu.idatt2001.IO.ArmyReaderTest" time="0.139"/>
 </testsuite>

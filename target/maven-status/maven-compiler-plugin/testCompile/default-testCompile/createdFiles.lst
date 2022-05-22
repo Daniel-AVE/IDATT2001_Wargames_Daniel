@@ -1,4 +1,5 @@
 edu/ntnu/idatt2001/Units/UnitsHealthTest.class
+edu/ntnu/idatt2001/Unit_Factory/UnitFactoryTest.class
 edu/ntnu/idatt2001/IO/ArmyReaderTest.class
 edu/ntnu/idatt2001/Army/ArmyTest.class
 edu/ntnu/idatt2001/Units/UnitsAttackTest.class

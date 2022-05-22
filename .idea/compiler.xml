@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="IDATT2001_Wargames_Daniel_E" target="17" />
+      <module name="IDATT2001_Wargames_Daniel_E" target="16" />
     </bytecodeTargetLevel>
   </component>
 </project>

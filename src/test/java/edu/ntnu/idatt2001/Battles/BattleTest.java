@@ -3,10 +3,15 @@ package edu.ntnu.idatt2001.Battles;
 
 import edu.ntnu.idatt2001.Army.*;
 import edu.ntnu.idatt2001.Battles.*;
+import edu.ntnu.idatt2001.Terrain.Terrain;
+import edu.ntnu.idatt2001.Unit_Factory.UnitFactory;
+import edu.ntnu.idatt2001.Unit_Factory.UnitType;
 import edu.ntnu.idatt2001.Units.*;
 import java.util.*;
 
 import org.junit.jupiter.api.Test;
+import org.w3c.dom.ranges.Range;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -22,18 +27,17 @@ public class BattleTest {
      * @param army2 the army 2
      */
     public void fillArmiesWithUnits(Army army1, Army army2) {
-        for (int i = 0; i < 500; i++) {
-            army1.add(new InfantryUnit("test1", 100));
-            army2.add(new InfantryUnit("test2", 100));
-        } for (int i = 0; i < 200; i++) {
-            army1.add(new RangedUnit("test1", 100));
-            army2.add(new RangedUnit("test2", 100));
-        } for (int i = 0; i < 100; i++) {
-            army1.add(new CavalryUnit("test1", 100));
-            army2.add(new CavalryUnit("test2", 100));
-        }
-        army1.add(new CommanderUnit("Jaina Proudmoore", 180));
-        army2.add(new CommanderUnit("Sylvanas Windrunner", 180));
+        ArrayList<Unit> army = new ArrayList<>();
+
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.InfantryUnit, 500, "test", 100));
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.RangedUnit, 200, "test", 100));
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.CavalryUnit, 100, "test", 100));
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.WizardUnit, 50, "test", 100));
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.SwordmasterUnit, 50, "test", 100));
+        army.add(UnitFactory.createUnit(UnitType.CommanderUnit, "test", 100));
+
+        army1.addAll(army);
+        army2.addAll(army);
     }
 
     /**
@@ -44,14 +48,15 @@ public class BattleTest {
      * @param army1 the army 1
      */
     public void fillArmyWithUnits(Army army1) {
-        for (int i = 0; i < 500; i++) {
-            army1.add(new InfantryUnit("test", 100));
-        } for (int i = 0; i < 200; i++) {
-            army1.add(new RangedUnit("test", 100));
-        } for (int i = 0; i < 100; i++) {
-            army1.add(new CavalryUnit("test", 100));
-        }
-        army1.add(new CommanderUnit("Jaina Proudmoore", 180));
+        ArrayList<Unit> army = new ArrayList<>();
+
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.InfantryUnit, 500, "test", 100));
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.RangedUnit, 200, "test", 100));
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.CavalryUnit, 100, "test", 100));
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.WizardUnit, 50, "test", 100));
+        army.add(UnitFactory.createUnit(UnitType.CommanderUnit, "test", 100));
+
+        army1.addAll(army);
     }
 
     /**
@@ -78,12 +83,12 @@ public class BattleTest {
 
         fillArmyWithUnits(armyOne);
 
-        armyTwo.add(new InfantryUnit("Footman", 1, 0, 0));
+        armyTwo.add(UnitFactory.createUnit(UnitType.InfantryUnit, "Footman", 1));
 
         assertTrue(armyOne.hasUnits());
         assertTrue(armyTwo.hasUnits());
 
-        Battle battle = new Battle(armyOne, armyTwo);
+        Battle battle = new Battle(armyOne, armyTwo, Terrain.forest);
 
         for (int i = 0; i < 1; i++) {
             battle.simulateRandom();

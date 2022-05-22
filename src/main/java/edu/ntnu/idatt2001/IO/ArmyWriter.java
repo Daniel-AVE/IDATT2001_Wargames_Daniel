@@ -25,8 +25,8 @@ public class ArmyWriter {
         if (!file.getName().endsWith(".csv")){
             throw new IOException("Only .csv-files are supported, please make sure the file is a .csv-file");
         }
-        if (!(file.getPath().startsWith(FileSystems.getDefault().getPath("src","main", "resources", "army_files").toString()))) {
-            throw new IOException("File is not being written to src/main/resources/army_files. Please make sure it does so");
+        if (!(file.getPath().startsWith(FileSystems.getDefault().getPath("src","main", "resources", "edu/ntnu/idatt2001/army_files").toString()))) {
+            throw new IOException("File is not being written to src/main/resources/edu/ntnu/idatt2001/army_files. Please make sure it does so");
         }
         if (army == null) {
             throw new IOException("Army is null");

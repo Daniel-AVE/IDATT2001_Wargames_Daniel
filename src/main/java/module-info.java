@@ -13,4 +13,6 @@ module edu.ntnu.idatt2001.idatt2001_wargames_daniel_e {
     opens edu.ntnu.idatt2001.Terrain;
     opens edu.ntnu.idatt2001.Unit_Factory;
     opens edu.ntnu.idatt2001.Units;
+    exports edu.ntnu.idatt2001.controllers;
+    opens edu.ntnu.idatt2001.controllers to javafx.fxml;
 }

@@ -14,6 +14,7 @@ import java.util.Random;
 public class Battle {
     private Army armyOne = new Army("Human");
     private Army armyTwo = new Army("Orc");
+    public Terrain terrain;
 
     /**
      * Instantiates a new Battle.
@@ -21,7 +22,7 @@ public class Battle {
      * @param armyOne the army one
      * @param armyTwo the army two
      */
-    public Battle(Army armyOne, Army armyTwo) {
+    public Battle(Army armyOne, Army armyTwo, Terrain terrain) {
         if (armyOne == null || armyTwo == null) {
             throw new IllegalArgumentException("Armies cannot be empty or null");
         } if (!armyOne.hasUnits()) {
@@ -31,6 +32,7 @@ public class Battle {
         }
         this.armyOne = armyOne;
         this.armyTwo = armyTwo;
+        this.terrain = terrain;
     }
 
     /**
@@ -52,7 +54,7 @@ public class Battle {
             if (randomNumber == 0) {
                 try {
                     Unit randomUnit = armyTwo.getRandom();
-                    armyOne.getRandom().attack(randomUnit, Terrain.plains);
+                    armyOne.getRandom().attack(randomUnit, this.terrain);
 
                     if (randomUnit.getHealth() <= 0) {
                         armyTwo.remove(randomUnit);
@@ -63,7 +65,7 @@ public class Battle {
             } else {
                 try {
                     Unit randomUnit = armyOne.getRandom();
-                    armyTwo.getRandom().attack(randomUnit, Terrain.plains);
+                    armyTwo.getRandom().attack(randomUnit, this.terrain);
 
                     if (randomUnit.getHealth() <= 0) {
                         armyOne.remove(randomUnit);
@@ -98,7 +100,7 @@ public class Battle {
             if (counter % 2 == 0) {
                 try {
                     Unit randomUnit = armyTwo.getRandom();
-                    armyOne.getRandom().attack(randomUnit, Terrain.plains);
+                    armyOne.getRandom().attack(randomUnit, this.terrain);
 
                     if (randomUnit.getHealth() >= 0) {
                         armyTwo.remove(randomUnit);
@@ -109,7 +111,7 @@ public class Battle {
             } else {
                 try {
                     Unit randomUnit = armyOne.getRandom();
-                    armyTwo.getRandom().attack(randomUnit, Terrain.plains);
+                    armyTwo.getRandom().attack(randomUnit, this.terrain);
 
                     if (randomUnit.getHealth() >= 0) {
                         armyOne.remove(randomUnit);

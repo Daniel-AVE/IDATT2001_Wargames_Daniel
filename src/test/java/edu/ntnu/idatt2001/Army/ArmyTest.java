@@ -22,24 +22,17 @@ public class ArmyTest {
      * @param army2
      */
     public void fillArmyWithUnits(Army army1, Army army2) {
-        for (int i = 0; i < 500; i++) {
-            army1.add(new InfantryUnit("test1", 100));
-            army2.add(new InfantryUnit("test2", 100));
-        } for (int i = 0; i < 200; i++) {
-            army1.add(new RangedUnit("test1", 100));
-            army2.add(new RangedUnit("test2", 100));
-        } for (int i = 0; i < 100; i++) {
-            army1.add(new CavalryUnit("test1", 100));
-            army2.add(new CavalryUnit("test2", 100));
-        } for (int i = 0; i < 50; i++) {
-            army1.add(new WizardUnit("test1", 100));
-            army2.add(new WizardUnit("test2", 100));
-        } for (int i = 0; i < 50; i++) {
-            army1.add(new SwordmasterUnit("test1", 100));
-            army2.add(new SwordmasterUnit("test2", 100));
-        }
-        army1.add(new CommanderUnit("Jaina Proudmoore", 180));
-        army2.add(new CommanderUnit("Sylvanas Windrunner", 180));
+        ArrayList<Unit> army = new ArrayList<>();
+
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.InfantryUnit, 500, "test", 100));
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.RangedUnit, 200, "test", 100));
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.CavalryUnit, 100, "test", 100));
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.WizardUnit, 50, "test", 100));
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.SwordmasterUnit, 50, "test", 100));
+        army.add(UnitFactory.createUnit(UnitType.CommanderUnit, "test", 100));
+
+        army1.addAll(army);
+        army2.addAll(army);
     }
 
     /**
@@ -79,29 +72,17 @@ public class ArmyTest {
         assertFalse(army1.hasUnits());
         assertFalse(army2.hasUnits());
 
-        ArrayList<Unit> fillArmy1WithUnits = new ArrayList<>();
-        ArrayList<Unit> fillArmy2WithUnits = new ArrayList<>();
-        for (int i = 0; i < 500; i++) {
-            fillArmy1WithUnits.add(new InfantryUnit("test1", 100));
-            fillArmy2WithUnits.add(new InfantryUnit("test2", 100));
-        } for (int i = 0; i < 200; i++) {
-            fillArmy1WithUnits.add(new RangedUnit("test1", 100));
-            fillArmy2WithUnits.add(new RangedUnit("test2", 100));
-        } for (int i = 0; i < 100; i++) {
-            fillArmy1WithUnits.add(new CavalryUnit("test1", 100));
-            fillArmy2WithUnits.add(new CavalryUnit("test2", 100));
-        } for (int i = 0; i < 50; i++) {
-            fillArmy1WithUnits.add(new WizardUnit("test1", 100));
-            fillArmy2WithUnits.add(new WizardUnit("test2", 100));
-        } for (int i = 0; i < 50; i++) {
-            fillArmy1WithUnits.add(new SwordmasterUnit("test1", 100));
-            fillArmy2WithUnits.add(new SwordmasterUnit("test2", 100));
-        }
-        fillArmy1WithUnits.add(new CommanderUnit("Jaina Proudmoore", 180));
-        fillArmy2WithUnits.add(new CommanderUnit("Sylvanas Windrunner", 180));;
+        ArrayList<Unit> army = new ArrayList<>();
 
-        army1.addAll(fillArmy1WithUnits);
-        army2.addAll(fillArmy2WithUnits);
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.InfantryUnit, 500, "test", 100));
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.RangedUnit, 200, "test", 100));
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.CavalryUnit, 100, "test", 100));
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.WizardUnit, 50, "test", 100));
+        army.addAll(UnitFactory.createXAmountOfUnits(UnitType.SwordmasterUnit, 50, "test", 100));
+        army.add(UnitFactory.createUnit(UnitType.CommanderUnit, "test", 100));
+
+        army1.addAll(army);
+        army2.addAll(army);
 
         assertTrue(army1.hasUnits());
         assertTrue(army2.hasUnits());
