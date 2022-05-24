@@ -5,7 +5,7 @@ import edu.ntnu.idatt2001.Terrain.*;
 
 /**
  * The super class for units
- * @Author Daniel Evensen
+ * @author Daniel Evensen
  */
 public abstract class Unit {
     protected String name;
@@ -118,6 +118,8 @@ public abstract class Unit {
      * Abstract method for getting attack bonus
      * Method is overrided in all classes which extends this super class
      *
+     * uses terrain as parameter, giving different kinds of bonuses depending on terrain
+     *
      * @return the attack bonus for the specific unit
      */
     public abstract int getAttackBonus(Terrain terrain);
@@ -125,6 +127,8 @@ public abstract class Unit {
     /**
      * Abstract method for getting resist bonus
      * Method is overrided in all classes which extends this super class
+     *
+     * uses terrain as parameter, giving different kinds of bonuses depending on terrain
      *
      * @return the resist bonus for the specific unit
      */

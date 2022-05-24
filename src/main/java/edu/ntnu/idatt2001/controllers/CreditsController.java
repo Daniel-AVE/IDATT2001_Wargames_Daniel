@@ -8,6 +8,8 @@ import java.io.IOException;
 
 /**
  * A controller class for both about and help page
+ *
+ * @author Daniel Evensen
  */
 public class CreditsController {
 
@@ -22,7 +24,8 @@ public class CreditsController {
     }
 
     /**
-     * Redirects to about page if clicked on about menu button
+     * Redirects to credits page if clicked on credits menu button
+     * in this case, credits menu button is disabled, so it can't be clicked
      * @throws IOException if scenes could not be switched
      */
     @FXML
@@ -32,7 +35,7 @@ public class CreditsController {
     }
 
     /**
-     * Redirects to create new tournament page if clicked on create new tournament button
+     * Redirects to battle page if clicked on new battle button
      * @throws IOException if scenes could not be switched
      */
     @FXML

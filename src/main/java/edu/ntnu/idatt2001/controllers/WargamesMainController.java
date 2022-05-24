@@ -7,6 +7,11 @@ import javafx.scene.control.CheckBox;
 
 import java.io.IOException;
 
+/**
+ * Class for WargamesMainController
+ *
+ * @author Daniel Evensen
+ */
 public class WargamesMainController {
 
     /**

@@ -4,7 +4,7 @@ import edu.ntnu.idatt2001.Terrain.*;
 
 /**
  * The class CavalryUnit which inherits from super class Unit
- * @Author Daniel Evensen
+ * @author Daniel Evensen
  */
 public class CavalryUnit extends Unit {
     private int counter = 0;
@@ -52,18 +52,16 @@ public class CavalryUnit extends Unit {
     /**
      * Override of the abstract method getAttackBonus from super class
      * If counter is 0, the value of attack bonus is higher, due to the cavalry charging the opponent on a horse
-     * If counter is 1, the value of attack bonus decreases, due to cavalry unit no longer being able to charge from a distance
+     * If counter is 1 or above, the value of attack bonus decreases, due to cavalry unit no
+     * longer being able to charge from a distance
+     *
+     * If this unit is battling in terrain plains, it has added bonus
+     *
      * @return returns a value for this method for this specific unit
      */
     @Override
     public int getAttackBonus(Terrain terrain) {
         int attackBonus = 0;
-
-        if (this.getCounter() == 0) {
-            attackBonus = 6;
-        } else {
-            attackBonus = 2;
-        }
 
         if (terrain == Terrain.plains) {
             if (this.getCounter() == 0) {
@@ -71,7 +69,15 @@ public class CavalryUnit extends Unit {
             } else {
                 attackBonus = 2 + 4;
             }
+        } else {
+            if (this.getCounter() == 0) {
+                attackBonus = 6;
+            } else {
+                attackBonus = 2;
+            }
         }
+
+
         this.increaseCounter();
 
         return attackBonus;
@@ -79,14 +85,18 @@ public class CavalryUnit extends Unit {
 
     /**
      * Override of the abstract method getResistBonus from super class
+     *
+     * if this unit is battling in a forest, it loses it's resist bonus
+     *
      * @return returns a value for this method for this specific unit
      */
     @Override
     public int getResistBonus(Terrain terrain) {
         if (terrain == Terrain.forest) {
             return 0;
+        } else {
+            return 2;
         }
-        return 2;
     }
 
     /**

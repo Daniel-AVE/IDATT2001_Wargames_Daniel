@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
  * Test class for all Units classes within the Units package
  * Testing all methods pertaining to health
  *
- * @Author Daniel Evensen
+ * @author Daniel Evensen
  */
 public class UnitsHealthTest {
 
@@ -84,6 +84,13 @@ public class UnitsHealthTest {
                 assertThrows(IllegalArgumentException.class, () -> com1.setHealth(-2));
         }
 
+        /**
+         * Health change test for WizardUnit
+         * Tests that the method setHealth works as it should
+         *
+         * Uses assertEquals for what is expected to work
+         * Uses assertThrows for what is expected to throw an exception
+         */
         @Test
         public void wizardHealthTest() {
                 WizardUnit w1 = new WizardUnit("Merlin", 100);
@@ -97,6 +104,13 @@ public class UnitsHealthTest {
                 assertThrows(IllegalArgumentException.class, () -> w1.setHealth(-2));
         }
 
+        /**
+         * Health change test for SwordmasterUnit
+         * Tests that the method setHealth works as it should
+         *
+         * Uses assertEquals for what is expected to work
+         * Uses assertThrows for what is expected to throw an exception
+         */
         @Test
         public void swordmasterHealthTest() {
                 SwordmasterUnit s1 = new SwordmasterUnit("Sword Hero", 100);

@@ -4,7 +4,7 @@ import edu.ntnu.idatt2001.Terrain.*;
 
 /**
  * The class RangedUnit which inherits from super class Unit
- * @Author Daniel Evensen
+ * @author Daniel Evensen
  */
 public class RangedUnit extends Unit {
     private int counter = 0; // used for creating different values for resist bonus depending on attacking turn
@@ -51,16 +51,21 @@ public class RangedUnit extends Unit {
 
     /**
      * Override of the abstract method getAttackBonus from super class
+     *
+     * If this unit is battling in a hill, it has added attack bonus
+     * If this unit is battling in a forest, it still has attack bonus, but lower than default
+     *
      * @return returns a value for this method for this specific unit
      */
     @Override
     public int getAttackBonus (Terrain terrain) {
         if (terrain == Terrain.hill) {
             return 3 + 2;
-        } if (terrain == Terrain.forest) {
+        } else if (terrain == Terrain.forest) {
             return 3 - 2;
+        } else {
+            return 3;
         }
-        return 3;
     }
 
     /**

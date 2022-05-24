@@ -3,7 +3,7 @@ package edu.ntnu.idatt2001.Units;
 /**
  * The class CommanderUnit which inherits from CavalryUnit
  * Meaning this class inherits from CavalryUnit which again inherits from super class Unit
- * @Author Daniel Evensen
+ * @author Daniel Evensen
  */
 public class CommanderUnit extends CavalryUnit {
 

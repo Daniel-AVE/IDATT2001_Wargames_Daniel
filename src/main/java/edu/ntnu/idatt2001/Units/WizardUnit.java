@@ -4,7 +4,7 @@ import edu.ntnu.idatt2001.Terrain.*;
 
 /**
  * The class WizardUnit which inherits from super class Unit
- * @Author Daniel Evensen
+ * @author Daniel Evensen
  */
 
 public class WizardUnit extends Unit {
@@ -32,7 +32,7 @@ public class WizardUnit extends Unit {
      * @param health the health
      */
     public WizardUnit(String name, int health) {
-        super(name, health, 18, 13);
+        super(name, health, 18, 8);
     }
 
     /**
@@ -74,19 +74,14 @@ public class WizardUnit extends Unit {
      * If counter is 0, the value of attack bonus is higher, due to the wizard being far away, giving time to cast spells
      * If counter is 1, the value of attack bonus decreases, due to enemy units closing on wizard, giving less time to cast spells
      * If counter is 2, the value of attack bonus reaches zero, due to enemy units having reached wizard, leaving no time for wizard to cast spells
+     *
+     * this unit has higher attack bonus if it is battling in plains or a hill
+     *
      * @return returns a value for this method for this specific unit
      */
     @Override
     public int getAttackBonus(Terrain terrain) {
         int attackBonus = 0;
-
-        if (this.getAttackCounter() == 0) {
-            attackBonus = 12;
-        } else if (this.getAttackCounter() == 1) {
-            attackBonus = 6;
-        } else {
-            attackBonus = 0;
-        }
 
         if (terrain == Terrain.plains || terrain == Terrain.hill) {
             if (this.getAttackCounter() == 0) {
@@ -96,7 +91,16 @@ public class WizardUnit extends Unit {
             } else {
                 attackBonus = 0;
             }
+        } else {
+            if (this.getAttackCounter() == 0) {
+                attackBonus = 12;
+            } else if (this.getAttackCounter() == 1) {
+                attackBonus = 6;
+            } else {
+                attackBonus = 0;
+            }
         }
+
         this.increaseAttackCounter();
 
         return attackBonus;

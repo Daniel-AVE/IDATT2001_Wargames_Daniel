@@ -2,6 +2,11 @@ package edu.ntnu.idatt2001.Units;
 
 import edu.ntnu.idatt2001.Terrain.Terrain;
 
+/**
+ * The type Swordmaster unit.
+ *
+ * @author Daniel Evensen
+ */
 public class SwordmasterUnit extends Unit{
     private int attackCounter = 0;
     private int resistCounter = 0;
@@ -27,7 +32,7 @@ public class SwordmasterUnit extends Unit{
      * @param health the health
      */
     public SwordmasterUnit(String name, int health) {
-        super(name, health, 20, 16);
+        super(name, health, 20, 10);
     }
 
     /**
@@ -51,7 +56,6 @@ public class SwordmasterUnit extends Unit{
      *
      * @return the counter
      */
-
     public int getResistCounter() {
         return resistCounter;
     }
@@ -69,8 +73,6 @@ public class SwordmasterUnit extends Unit{
      * If counter is 0, the value of attack bonus is zero, due to the swordmaster being too far away to attack nor defend himself properly
      * If counter is 1, the value of attack bonus increases a bit, due swordmaster getting close enough in range to start throwing attacks
      * If counter is 2, the value of attack bonus increases more, due to swordmaster having reached opponent units, being able to both attack and defend himself properly
-     *
-     *
      *
      * @return returns a value for this method for this specific unit
      */
@@ -104,14 +106,6 @@ public class SwordmasterUnit extends Unit{
     public int getResistBonus (Terrain terrain){
         int resistBonus = 0;
 
-        if (this.getResistCounter() == 0) {
-            resistBonus = 0;
-        } else if (this.getResistCounter() == 1) {
-            resistBonus = 2;
-        } else {
-            resistBonus = 4;
-        }
-
         if (terrain == Terrain.forest) {
             if (this.getResistCounter() == 0) {
                 resistBonus = 0 + 2;
@@ -120,8 +114,15 @@ public class SwordmasterUnit extends Unit{
             } else {
                 resistBonus = 4 + 2;
             }
+        } else {
+            if (this.getResistCounter() == 0) {
+                resistBonus = 0;
+            } else if (this.getResistCounter() == 1) {
+                resistBonus = 2;
+            } else {
+                resistBonus = 4;
+            }
         }
-
         this.increaseResistCounter();
 
         return resistBonus;

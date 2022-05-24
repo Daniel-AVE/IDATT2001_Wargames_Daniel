@@ -4,7 +4,7 @@ import edu.ntnu.idatt2001.Terrain.Terrain;
 
 /**
  * The class InfantryUnit which inherits from super class Unit
- * @Author Daniel Evensen
+ * @author Daniel Evensen
  */
 public class InfantryUnit extends Unit {
 
@@ -46,14 +46,18 @@ public class InfantryUnit extends Unit {
 
     /**
      * Override of the abstract method getResistBonus from super class
+     *
+     * If this unit battles in a forest, it has added resist bonus
+     *
      * @return returns a value for this method for this specific unit
      */
     @Override
     public int getResistBonus(Terrain terrain) {
         if (terrain == Terrain.forest) {
             return 1 + 1;
+        } else {
+            return 1;
         }
-        return 1;
     }
 
     /**

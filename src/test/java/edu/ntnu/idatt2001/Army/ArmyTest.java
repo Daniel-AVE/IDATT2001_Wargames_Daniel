@@ -2,7 +2,6 @@ package edu.ntnu.idatt2001.Army;
 
 import java.util.*;
 
-import edu.ntnu.idatt2001.Army.*;
 import edu.ntnu.idatt2001.Units.*;
 import edu.ntnu.idatt2001.Unit_Factory.*;
 import org.junit.jupiter.api.Test;
@@ -12,16 +11,17 @@ import static org.junit.jupiter.api.Assertions.*;
  * Test class for methods within the Army class
  * Testing all methods which makes sense to test
  *
- * @Author Daniel Evensen
+ * @author Daniel Evensen
  */
 public class ArmyTest {
 
     /**
      * method to fill two armies with pre-set units to be used for tests
-     * @param army1
-     * @param army2
+     *
+     * @param army1 the army 1
+     * @param army2 the army 2
      */
-    public void fillArmyWithUnits(Army army1, Army army2) {
+    public void fillArmiesWithUnits(Army army1, Army army2) {
         ArrayList<Unit> army = new ArrayList<>();
 
         army.addAll(UnitFactory.createXAmountOfUnits(UnitType.InfantryUnit, 500, "test", 100));
@@ -50,7 +50,7 @@ public class ArmyTest {
         assertFalse(army1.hasUnits());
         assertFalse(army2.hasUnits());
 
-        fillArmyWithUnits(army1, army2);
+        fillArmiesWithUnits(army1, army2);
 
         assertTrue(army1.hasUnits());
         assertTrue(army2.hasUnits());
@@ -60,8 +60,8 @@ public class ArmyTest {
      * Test for creating an army with units from arraylist
      *
      * uses assertFalse to check that armies does not have units before adding them
-     * creates arraylists and adds units for both armies into both arraylists
-     * uses addAll to add the units in the arraylists to the armies
+     * creates arraylist and adds units to arraylist using unit factory
+     * uses addAll to add the units in the arraylist to the armies
      * uses assertTrue to check that armies has units after adding the units
      */
     @Test
@@ -157,7 +157,7 @@ public class ArmyTest {
         Army army1 = new Army("Human");
         Army army2 = new Army("Orc");
         Army army3 = new Army("Test");
-        fillArmyWithUnits(army1, army2);
+        fillArmiesWithUnits(army1, army2);
 
         assertTrue(army1.hasUnits());
         assertEquals(901, army1.getUnitSizeByInt());
@@ -175,13 +175,13 @@ public class ArmyTest {
      * Test method for getting the correct amount of infantry units out from arraylist units
      * expects 500 infantry units, and checks that up with the size of arraylist infantry units
      *
-     * also check that arraylist is not empty, or doesn't pass through the number of another unit
+     * also checks that arraylist is not empty, or doesn't pass through the number of another unit
      */
     @Test
     public void testGetInfantryUnit() {
         Army army1 = new Army("Human");
         Army army2 = new Army("Orc");
-        fillArmyWithUnits(army1, army2);
+        fillArmiesWithUnits(army1, army2);
 
         assertEquals(500, army1.getInfantryUnit().size());
         assertNotEquals(0, army1.getInfantryUnit().size());
@@ -192,13 +192,13 @@ public class ArmyTest {
      * Test method for getting the correct amount of ranged units out from arraylist units
      * expects 200 ranged units, and checks that up with the size of arraylist ranged units
      *
-     * also check that arraylist is not empty, or doesn't pass through the number of another unit
+     * also checks that arraylist is not empty, or doesn't pass through the number of another unit
      */
     @Test
     public void testGetRangedUnit() {
         Army army1 = new Army("Human");
         Army army2 = new Army("Orc");
-        fillArmyWithUnits(army1, army2);
+        fillArmiesWithUnits(army1, army2);
 
         assertEquals(200, army1.getRangedUnit().size());
         assertNotEquals(0, army1.getRangedUnit().size());
@@ -209,13 +209,13 @@ public class ArmyTest {
      * Test method for getting the correct amount of cavalry units out from arraylist units
      * expects 100 ranged units, and checks that up with the size of arraylist cavalry units
      *
-     * also check that arraylist is not empty, or doesn't pass through the number of another unit
+     * also checks that arraylist is not empty, or doesn't pass through the number of another unit
      */
     @Test
     public void testGetCavalryUnit() {
         Army army1 = new Army("Human");
         Army army2 = new Army("Orc");
-        fillArmyWithUnits(army1, army2);
+        fillArmiesWithUnits(army1, army2);
 
         assertEquals(100, army1.getCavalryUnit().size());
         assertNotEquals(0, army1.getCavalryUnit().size());
@@ -232,32 +232,45 @@ public class ArmyTest {
     public void testGetCommanderUnit() {
         Army army1 = new Army("Human");
         Army army2 = new Army("Orc");
-        fillArmyWithUnits(army1, army2);
+        fillArmiesWithUnits(army1, army2);
 
         assertEquals(1, army1.getCommanderUnit().size());
         assertNotEquals(0, army1.getCommanderUnit().size());
         assertNotEquals(100, army1.getCommanderUnit().size());
     }
 
+    /**
+     * Test method for getting the correct amount of wizard units out from arraylist units
+     * expects 50 wizard units, and checks that up with the size of arraylist wizard units
+     *
+     * also checks that arraylist is not empty, or doesn't pass through the number of another unit
+     */
     @Test
     public void testGetWizardUnit() {
         Army army1 = new Army("Human");
         Army army2 = new Army("Orc");
-        fillArmyWithUnits(army1, army2);
+        fillArmiesWithUnits(army1, army2);
 
         assertEquals(50, army1.getWizardUnit().size());
         assertNotEquals(0, army1.getWizardUnit().size());
         assertNotEquals(100, army1.getWizardUnit().size());
     }
 
+    /**
+     * Test method for getting the correct amount of swordmaster units out from arraylist units
+     * expects 50 swordmaster units, and checks that up with the size of arraylist swordmaster units
+     *
+     * also checkts that arraylist it not empty, or doesn't pass through the number of another unit
+     */
     @Test
     public void testGetSwordmasterUnit() {
-        Army army = new Army("Human");
-        ArrayList<Unit> swordmaster = UnitFactory.createXAmountOfUnits(UnitType.SwordmasterUnit, 70, "test", 100);
-        army.addAll(swordmaster);
+        Army army1 = new Army("Human");
+        Army army2 = new Army("Orc");
 
-        assertEquals(70, army.getSwordmasterUnit().size());
-        assertNotEquals(0, army.getSwordmasterUnit().size());
-        assertNotEquals(100, army.getSwordmasterUnit().size());
+        fillArmiesWithUnits(army1, army2);
+
+        assertEquals(50, army1.getSwordmasterUnit().size());
+        assertNotEquals(0, army1.getSwordmasterUnit().size());
+        assertNotEquals(100, army1.getSwordmasterUnit().size());
     }
 }

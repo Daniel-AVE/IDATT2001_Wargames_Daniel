@@ -7,12 +7,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 
+/**
+ * The type Units attack test.
+ *
+ * @author Daniel Evensen
+ */
 public class UnitsAttackTest {
     /**
      * Attack test for InfantryUnit
      * Also contains test for attack bonus, terrain bonus, resist bonus and armor.
+     * Also contains test for terrain bonuses
      * Attack with attack and attack bonus - the armor and resist bonus of the opponent
-     * <p>
+     *
      * Uses assertEquals to make sure the opponent's remaining health is what it should be, depending on
      * the attackers attack and attack bonus, and depending on opponent's armor and resist bonus
      */
@@ -34,11 +40,12 @@ public class UnitsAttackTest {
     /**
      * Attack test for RangedUnit
      * Also contains test for attack bonus, resist bonus and armor.
+     * Also contains test for terrain bonuses
      * Attack with attack and attack bonus - the armor and resist bonus of the opponent
-     * <p>
+     *
      * Also tests that the resist bonus works as it should by having higher resist bonus from first attack, and
      * decreased resist bonus for following attacks
-     * <p>
+     *
      * Uses assertEquals to make sure the opponent's remaining health is what it should be, depending on
      * the attackers attack and attack bonus, and depending on opponent's armor and resist bonus
      */
@@ -73,11 +80,12 @@ public class UnitsAttackTest {
     /**
      * Attack test for CavalryUnit
      * Also contains test for attack bonus, resist bonus and armor.
+     * Also contains test for terrain bonuses
      * Attack with attack and attack bonus - the armor and resist bonus of the opponent
-     * <p>
+     *
      * Also tests that the attack bonus works as it should by having higher attack bonus for first attack, then
      * a decreased attack bonus for all following attacks
-     * <p>
+     *
      * Uses assertEquals to make sure the opponent's remaining health is what it should be, depending on
      * the attackers attack and attack bonus, and depending on opponent's armor and resist bonus
      */
@@ -101,11 +109,12 @@ public class UnitsAttackTest {
     /**
      * Attack test for CommanderUnit
      * Also contains test for attack bonus, resist bonus and armor.
+     * Also contains test for terrain bonuses
      * Attack with attack and attack bonus - the armor and resist bonus of the opponent
-     * <p>
+     *
      * Also tests that the attack bonus works as it should by having higher attack bonus for first attack, then
      * a decreased attack bonus for all following attacks
-     * <p>
+     *
      * Uses assertEquals to make sure the opponent's remaining health is what it should be, depending on
      * the attackers attack and attack bonus, and depending on opponent's armor and resist bonus
      */
@@ -126,44 +135,64 @@ public class UnitsAttackTest {
         assertEquals(70, com2.getHealth());
     }
 
+    /**
+     * Wizard attack test.
+     * Also contains test for attack bonus, resist bonus and armor.
+     * Also contains test for terrain bonuses
+     * Attack with attack and attack bonus - the armor and resist bonus of the opponent
+     *
+     * Uses assertEquals to make sure the opponent's remaining health is what it should be, depending on
+     * the attackers attack and attack bonus, and depending on opponent's armor and resist bonus. While also
+     * depending on what terrain they're on
+     */
     @Test
     public void wizardAttackTest() {
         WizardUnit w1 = new WizardUnit("Merlin", 100);
         WizardUnit w2 = new WizardUnit("Lucas Traumen", 100);
 
         w1.attack(w2, Terrain.forest);
-        assertEquals(91, w2.getHealth());
+        assertEquals(86, w2.getHealth());
         w1.attack(w2, Terrain.forest);
-        assertEquals(85, w2.getHealth());
+        assertEquals(75, w2.getHealth());
         w1.attack(w2, Terrain.forest);
-        assertEquals(80, w2.getHealth());
+        assertEquals(65, w2.getHealth());
 
         w2.attack(w1, Terrain.plains);
-        assertEquals(88, w1.getHealth());
+        assertEquals(83, w1.getHealth());
         w2.attack(w1, Terrain.hill);
-        assertEquals(79,w1.getHealth());
+        assertEquals(69,w1.getHealth());
         w2.attack(w1, Terrain.plains);
-        assertEquals(74,w1.getHealth());
+        assertEquals(59,w1.getHealth());
     }
 
+    /**
+     * Swordmaster attack test.
+     * Also contains test for attack bonus, resist bonus and armor.
+     * Also contains test for terrain bonuses
+     * Attack with attack and attack bonus - the armor and resist bonus of the opponent
+     *
+     * Uses assertEquals to make sure the opponent's remaining health is what it should be, depending on
+     * the attackers attack and attack bonus, and depending on opponent's armor and resist bonus. While also
+     * depending on what terrain they're on
+     */
     @Test
     public void swordmasterAttackTest() {
         SwordmasterUnit s1 = new SwordmasterUnit("Kamiizumi Nobunatsa", 100);
         SwordmasterUnit s2 = new SwordmasterUnit("Oda Nobunaga", 100);
 
         s1.attack(s2, Terrain.hill);
-        assertEquals(96, s2.getHealth());
+        assertEquals(90, s2.getHealth());
         s1.attack(s2, Terrain.plains);
-        assertEquals(87, s2.getHealth());
+        assertEquals(75, s2.getHealth());
         s1.attack(s2, Terrain.plains);
-        assertEquals(74, s2.getHealth());
+        assertEquals(56, s2.getHealth());
 
         s2.attack(s1, Terrain.forest);
-        assertEquals(98, s1.getHealth());
+        assertEquals(92, s1.getHealth());
         s2.attack(s1, Terrain.forest);
-        assertEquals(91, s1.getHealth());
+        assertEquals(79, s1.getHealth());
         s2.attack(s1, Terrain.forest);
-        assertEquals(80, s1.getHealth());
+        assertEquals(62, s1.getHealth());
     }
 }
 

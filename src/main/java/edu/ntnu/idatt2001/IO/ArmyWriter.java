@@ -9,18 +9,44 @@ import java.nio.file.FileSystems;
 
 
 /**
- * @Author: Daniel Evensen
+ * The type Army writer.
  *
- * Inspiration drawn from group assignment in Systems Development - IDATT1002
+ * @author: Daniel Evensen Inspiration drawn from group assignment in Systems Development - IDATT1002
  */
-
 public class ArmyWriter {
 
     private static final String NEWLINE = "\n";
     private static final String COMMA_DELIMITER = ",";
 
+    /**
+     * Instantiates a new Army writer.
+     *
+     * @Author Daniel Evensen
+     */
     public ArmyWriter(){}
 
+    /**
+     * Write army to file.
+     *
+     * checks that the file ends with .csv
+     * check that the file is being written to correct directory
+     * check that the army it's going to write is not null
+     *
+     * creates a String from army name, which will be the first line
+     *
+     * tries following methods for (filewriter):
+     * tried to write String armyNameLine + NEWLINE
+     * for each unit in army, it tries to write information from that unit onto empty line, getting simple class name
+     *  (without .java) which is used as Unit Type, getting name of unit, and unit health. Separated by commas
+     *
+     *  catches exception if exception is thrown while trying to write unit information
+     *
+     *  catches exception if it fails to write anything at all
+     *
+     * @param army the army
+     * @param file the file
+     * @throws IOException the io exception
+     */
     public static void writeArmyToFile(Army army, File file) throws IOException{
         if (!file.getName().endsWith(".csv")){
             throw new IOException("Only .csv-files are supported, please make sure the file is a .csv-file");
@@ -41,7 +67,7 @@ public class ArmyWriter {
                             unit.getHealth() + NEWLINE);
 
                     } catch (IOException e) {
-                    System.out.println(e.getMessage());
+                    e.printStackTrace();
                 }
             });
         } catch (IOException e) {

@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  * The class Army
  * Contains methods to create an army
  * Contains method to add or remove units to an army
- * @Author Daniel Evensen
+ * @author Daniel Evensen
  */
 public class Army {
     private String name;

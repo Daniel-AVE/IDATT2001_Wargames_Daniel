@@ -8,11 +8,14 @@ import java.io.IOException;
 
 /**
  * A controller class for both about and help page
+ *
+ * @author Daniel Evensen
  */
 public class HomeController {
 
     /**
      * Redirects to main page if home menu button is clicked
+     * In this case, home menu button is disabled, so it can't be clicked
      * @throws IOException if scenes could not be switched
      */
     @FXML
@@ -22,7 +25,7 @@ public class HomeController {
     }
 
     /**
-     * Redirects to about page if clicked on about menu button
+     * Redirects to credits page if clicked on credits menu button
      * @throws IOException if scenes could not be switched
      */
     @FXML
@@ -31,6 +34,10 @@ public class HomeController {
         ViewSwitcher.switchTo(View.CREDITS);
     }
 
+    /**
+     * Redirects to battle page if clicked on new battle button
+     * @throws IOException if scenes could not be switched
+     */
     @FXML
     void onNewBattleButtonPressed() throws IOException {
         ViewSwitcher.switchTo(View.BATTLE);

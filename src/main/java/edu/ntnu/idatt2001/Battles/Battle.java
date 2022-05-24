@@ -9,7 +9,7 @@ import java.util.Random;
 /**
  * The class Battle
  * Contains methods to simulate a battle between two armies
- * @Author Daniel Evensen
+ * @author Daniel Evensen
  */
 public class Battle {
     private Army armyOne = new Army("Human");
@@ -18,9 +18,11 @@ public class Battle {
 
     /**
      * Instantiates a new Battle.
+     * Takes terrain into account
      *
      * @param armyOne the army one
      * @param armyTwo the army two
+     * @param terrain the terrain the battle takes place on
      */
     public Battle(Army armyOne, Army armyTwo, Terrain terrain) {
         if (armyOne == null || armyTwo == null) {
@@ -44,6 +46,8 @@ public class Battle {
      * Only other option is for random number to equal 1, which means armyTwo will attack ArmyOne
      * By having it randomised, and luck based, one army could attack up to multiple times before the other army attacks
      *
+     * terrain is incorporated into the battle, making it easier to make the battle swerve in another army's favor
+     *
      * Before returning values, it checks if armyOne has units left. If this is true, then it returns armyOne as the winner
      * If armyOne doesn't have units left, that means armyTwo won, and armyTwo is what's returned as the winner.
      *
@@ -51,8 +55,8 @@ public class Battle {
      */
     public Army simulateRandom() {
         while (armyOne.hasUnits() && armyTwo.hasUnits()) {
-            Random randomInit = new Random();
-            int randomNumber = randomInit.nextInt(2);
+            Random randomInt = new Random();
+            int randomNumber = randomInt.nextInt(2);
             if (randomNumber == 0) {
                 try {
                     Unit randomUnit = armyTwo.getRandom();
@@ -62,7 +66,7 @@ public class Battle {
                         armyTwo.remove(randomUnit);
                     }
                 } catch (IllegalArgumentException e) {
-                    e.getMessage();
+                    e.printStackTrace();
                 }
             } else {
                 try {
@@ -73,7 +77,7 @@ public class Battle {
                         armyOne.remove(randomUnit);
                     }
                 } catch (IllegalArgumentException e) {
-                    e.getMessage();
+                    e.printStackTrace();
                 }
             }
         }
@@ -90,7 +94,9 @@ public class Battle {
      * Whenever counter modulus 2 does not equal 0, that means it's armyTwo's turn to attack. This will switch up for every other number
      * making this a turn based simulation
      *
-     * Same as in the randomized simulation, it checks which armies has units left, and returns the army depending on that.
+     * Takes terrain into account. Winner will depend on numbers, type of units and terrain
+     *
+     * Same as in the randomized simulation, it checks which armies have units left, and returns the army depending on that.
      *
      * @return the army
      */
@@ -108,7 +114,7 @@ public class Battle {
                         armyTwo.remove(randomUnit);
                     }
                 } catch (IllegalArgumentException e) {
-                    e.getMessage();
+                    e.printStackTrace();
                 }
             } else {
                 try {
@@ -119,7 +125,7 @@ public class Battle {
                         armyOne.remove(randomUnit);
                     }
                 } catch (IllegalArgumentException e) {
-                    e.getMessage();
+                    e.printStackTrace();
                 }
             }
         }

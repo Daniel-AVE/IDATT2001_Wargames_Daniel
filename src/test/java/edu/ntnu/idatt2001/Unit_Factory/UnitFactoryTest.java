@@ -9,8 +9,19 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 
+/**
+ * The type Unit factory test.
+ *
+ * @author Daniel Evensen
+ */
 public class UnitFactoryTest {
 
+    /**
+     * Test create singular unit.
+     *
+     * uses assertFalse before adding units to the army with unit factory to make sure there are no units in the army
+     * uses assertTrue after adding units to the army with unit factory to make sure there are units in the army
+     */
     @Test
     public void testCreateSingularUnit() {
         Army army = new Army("test");
@@ -22,6 +33,12 @@ public class UnitFactoryTest {
         assertTrue(army.hasUnits());
     }
 
+    /**
+     * Test create singular unit with null unit type throws exception.
+     *
+     * uses assertThrows with IllegalArgumentException class to make sure an IllegalArgumentException is thrown when
+     * trying to add a null unit type with unit factory
+     */
     @Test
     public void testCreateSingularUnitWithNullUnitTypeThrowsException() {
         Army army = new Army("test");
@@ -31,6 +48,13 @@ public class UnitFactoryTest {
         });
     }
 
+    /**
+     * Test create army with multiple units.
+     *
+     * uses assertFalse before adding units to the army to make sure the army is empty
+     * uses assertTrue after adding units to the army to make sure the army is not empty
+     * uses assertEquals to make sure that the amount of units supposed to be in the army, is the correct amount
+     */
     @Test
     public void testCreateArmyWithMultipleUnits() {
         Army armyOne = new Army("test");
@@ -52,6 +76,12 @@ public class UnitFactoryTest {
         assertEquals(901, armyOne.getUnitSizeByInt());
     }
 
+    /**
+     * Test create army with multiple units with null unit types throws exception.
+     *
+     * uses assertThrows with IllegalArgumentException class making sure a IllegalArgumentException is thrown when
+     * trying to create an army with multiple units with null unit type
+     */
     @Test
     public void testCreateArmyWithMultipleUnitsWithNullUnitTypesThrowsException() {
         Army armyOne = new Army("test");

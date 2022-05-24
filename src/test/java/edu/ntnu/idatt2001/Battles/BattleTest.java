@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * The test class for class Battle in package Battle
- * @Author Daniel Evensen
+ * @author Daniel Evensen
  */
 public class BattleTest {
 
@@ -66,6 +66,8 @@ public class BattleTest {
      * a chance for the test to fail. Therefore there is a question if this test is needed or not since it's randomised,
      * and we can not 100% predict the outcome of the battle.
      *
+     * Simulates the battle in all 3 types of terrain
+     *
      * uses assertFalse to check that armies are empty before adding units to the armies
      *
      * uses assertTrue to check that armies now has units after adding units to the armies
@@ -83,17 +85,23 @@ public class BattleTest {
 
         fillArmyWithUnits(armyOne);
 
-        armyTwo.add(UnitFactory.createUnit(UnitType.InfantryUnit, "Footman", 1));
+        armyTwo.add(UnitFactory.createUnit(UnitType.SwordmasterUnit, "Footman", 100));
 
         assertTrue(armyOne.hasUnits());
         assertTrue(armyTwo.hasUnits());
 
-        Battle battle = new Battle(armyOne, armyTwo, Terrain.forest);
+        Battle battle1 = new Battle(armyOne, armyTwo, Terrain.forest);
+        Battle battle2 = new Battle(armyOne, armyTwo, Terrain.hill);
+        Battle battle3 = new Battle(armyOne, armyTwo, Terrain.plains);
 
         for (int i = 0; i < 1; i++) {
-            battle.simulateRandom();
+            battle1.simulateRandom();
+            battle2.simulateRandom();
+            battle3.simulateRandom();
         }
-        assertEquals(armyOne, battle.simulateRandom());
+        assertEquals(armyOne, battle1.simulateRandom());
+        assertEquals(armyOne, battle2.simulateRandom());
+        assertEquals(armyOne, battle3.simulateRandom());
 
     }
 }
