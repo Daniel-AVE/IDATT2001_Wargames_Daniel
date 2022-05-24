@@ -11,7 +11,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="NO"/>
     <property name="sun.boot.library.path" value="/Users/danielevensen/Library/Java/JavaVirtualMachines/openjdk-17.0.2/Contents/Home/lib"/>
-    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter /Users/danielevensen/OneDrive - NTNU/Dataingeniør/V22/IDATT2001/IDATT2001_Wargames_Daniel_E/target/surefire 2022-05-22T18-33-32_440-jvmRun1 surefire227688525606870628tmp surefire_06634881158643515256tmp"/>
+    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter /Users/danielevensen/OneDrive - NTNU/Dataingeniør/V22/IDATT2001/IDATT2001_Wargames_Daniel_E/target/surefire 2022-05-24T05-33-54_206-jvmRun1 surefire6787376546583392842tmp surefire_04222884853780609096tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -55,7 +55,7 @@
     <property name="java.class.version" value="61.0"/>
   </properties>
   <testcase name="testCreateSingularUnit" classname="edu.ntnu.idatt2001.Unit_Factory.UnitFactoryTest" time="0.001"/>
-  <testcase name="testCreateArmyWithMultipleUnits" classname="edu.ntnu.idatt2001.Unit_Factory.UnitFactoryTest" time="0.002"/>
-  <testcase name="testCreateSingularUnitWithNullUnitTypeThrowsException" classname="edu.ntnu.idatt2001.Unit_Factory.UnitFactoryTest" time="0.002"/>
-  <testcase name="testCreateArmyWithMultipleUnitsWithNullUnitTypesThrowsException" classname="edu.ntnu.idatt2001.Unit_Factory.UnitFactoryTest" time="0.002"/>
+  <testcase name="testCreateArmyWithMultipleUnits" classname="edu.ntnu.idatt2001.Unit_Factory.UnitFactoryTest" time="0.004"/>
+  <testcase name="testCreateSingularUnitWithNullUnitTypeThrowsException" classname="edu.ntnu.idatt2001.Unit_Factory.UnitFactoryTest" time="0.003"/>
+  <testcase name="testCreateArmyWithMultipleUnitsWithNullUnitTypesThrowsException" classname="edu.ntnu.idatt2001.Unit_Factory.UnitFactoryTest" time="0.004"/>
 </testsuite>

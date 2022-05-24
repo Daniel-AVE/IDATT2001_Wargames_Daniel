@@ -30,6 +30,7 @@ public class ArmyWriter {
         }
         if (army == null) {
             throw new IOException("Army is null");
+
         }
         String armyNameLine = army.getName();
         try (FileWriter fileWriter = new FileWriter(file)) {
@@ -38,6 +39,7 @@ public class ArmyWriter {
                 try {
                     fileWriter.write(unit.getClass().getSimpleName() + COMMA_DELIMITER + unit.getName() + COMMA_DELIMITER +
                             unit.getHealth() + NEWLINE);
+
                     } catch (IOException e) {
                     System.out.println(e.getMessage());
                 }

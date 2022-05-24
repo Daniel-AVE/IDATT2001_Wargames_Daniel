@@ -29,6 +29,8 @@ public class Battle {
             throw new IllegalArgumentException(armyOne.getName() + " needs units in order to battle");
         } if (!armyTwo.hasUnits()) {
             throw new IllegalArgumentException(armyTwo.getName() + " needs units in order to battle");
+        } if (terrain == null) {
+            throw new IllegalArgumentException("Terrain is required in order to battle");
         }
         this.armyOne = armyOne;
         this.armyTwo = armyTwo;

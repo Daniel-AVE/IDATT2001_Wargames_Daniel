@@ -51,8 +51,18 @@ public class ArmyWriterTest {
         fillArmiesWithUnits(army1, army2);
 
         assertDoesNotThrow(() -> {
-            ArmyWriter.writeArmyToFile(army1, new File(path + "human_army.csv"));
-            ArmyWriter.writeArmyToFile(army2, new File(path + "orc_army.csv"));
+            ArmyWriter.writeArmyToFile(army1, new File(path + "Orc.csv"));
+            ArmyWriter.writeArmyToFile(army2, new File(path + "Human.csv"));
+        });
+    }
+
+    @Test
+    void testWriteAnotherArmyToFileWhichShowsUpInSavedArmies() {
+        Army army1 = new Army("Human");
+        fillArmyWithUnits(army1);
+
+        assertDoesNotThrow(() -> {
+            ArmyWriter.writeArmyToFile(army1, new File(path + "Human.csv"));
         });
     }
 
@@ -63,7 +73,7 @@ public class ArmyWriterTest {
         fillArmyWithUnits(army);
 
         assertThrows(IOException.class, () -> {
-            ArmyWriter.writeArmyToFile(army, new File(path + "Orc_army.txt"));
+            ArmyWriter.writeArmyToFile(army, new File(path + "Orc.txt"));
         });
     }
 
@@ -72,7 +82,7 @@ public class ArmyWriterTest {
         Army army = null;
 
         assertThrows(IOException.class, () -> {
-            ArmyWriter.writeArmyToFile(army, new File(path + "Orc_army.csv"));
+            ArmyWriter.writeArmyToFile(army, new File(path + "testArmy.csv"));
         });
     }
 

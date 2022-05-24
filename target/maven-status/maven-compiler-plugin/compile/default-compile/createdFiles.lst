@@ -16,8 +16,11 @@ edu/ntnu/idatt2001/Unit_Factory/UnitType.class
 edu/ntnu/idatt2001/WargamesMainApp.class
 edu/ntnu/idatt2001/Units/RangedUnit.class
 edu/ntnu/idatt2001/Scenes/View.class
+edu/ntnu/idatt2001/controllers/BattleController.class
 edu/ntnu/idatt2001/Army/Army.class
 edu/ntnu/idatt2001/controllers/CreditsController.class
+edu/ntnu/idatt2001/Listener/Listener.class
 edu/ntnu/idatt2001/Units/CavalryUnit.class
 edu/ntnu/idatt2001/MainApp.class
 edu/ntnu/idatt2001/Terrain/Terrain.class
+edu/ntnu/idatt2001/controllers/NewArmyController.class

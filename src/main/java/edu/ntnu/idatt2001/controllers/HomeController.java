@@ -33,16 +33,6 @@ public class HomeController {
 
     @FXML
     void onNewBattleButtonPressed() throws IOException {
-        ViewSwitcher.switchTo(View.HOME);
-    }
-
-    /**
-     * Redirects to create new tournament page if clicked on create new tournament button
-     * @throws IOException if scenes could not be switched
-     */
-    @FXML
-    void onNewBattleButtonClicked()
-    throws IOException{
-        ViewSwitcher.switchTo(View.HOME);
+        ViewSwitcher.switchTo(View.BATTLE);
     }
 }

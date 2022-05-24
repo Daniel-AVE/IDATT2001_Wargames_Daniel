@@ -36,8 +36,8 @@ public class CreditsController {
      * @throws IOException if scenes could not be switched
      */
     @FXML
-    void onNewBattleButtonClicked()
+    void onNewBattleButtonPressed()
     throws IOException{
-        ViewSwitcher.switchTo(View.HOME);
+        ViewSwitcher.switchTo(View.BATTLE);
     }
 }

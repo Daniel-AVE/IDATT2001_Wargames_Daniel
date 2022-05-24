@@ -6,6 +6,7 @@ import edu.ntnu.idatt2001.Unit_Factory.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -16,10 +17,11 @@ import java.util.Scanner;
 
 public class ArmyReader {
     private static final String COMMA_DELIMITER = ",";
+    private static boolean armyExists;
 
     public ArmyReader() {}
 
-    public Army readArmyFromFile(File file) throws IOException {
+    public static Army readArmyFromFile(File file) throws IOException {
         if (!(file.getName().endsWith(".csv"))) {
             throw new IOException("Only .csv-files are supported, please make sure the file is a .csv-file");
         }
@@ -68,5 +70,25 @@ public class ArmyReader {
             e.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * Code retrieved from an answer from a post on StackOverflow, then edited by me to fit this project.
+     * Source: https://stackoverflow.com/questions/39045272/matching-a-string-with-a-file-name
+     * @param army
+     * @return
+     */
+    public static boolean armyExists(Army army) {
+        File[] files = new File("src/main/resources/edu/ntnu/idatt2001/army_files/").listFiles(); //
+        String nameOfArmy = army.getName();
+        for(File f : files){
+            if(f.getName().toLowerCase().indexOf(nameOfArmy.toLowerCase()) != -1)
+                return true;
+        }
+        /*File file = new File("src/main/resources/edu/ntnu/idatt2001/army_files" + army.getName() + ".csv");
+        if (file.getName() == (army.getName() + ".csv") || file.exists()) {
+            return true;
+        }*/
+        return false;
     }
 }

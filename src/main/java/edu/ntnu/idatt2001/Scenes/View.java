@@ -6,7 +6,9 @@ package edu.ntnu.idatt2001.Scenes;
 public enum View {
     START("start-screen.fxml"),
     HOME("home-page.fxml"),
-    CREDITS("credits-page.fxml");
+    CREDITS("credits-page.fxml"),
+    BATTLE("battle-page.fxml"),
+    NEWARMY("new-army-page.fxml");
 
     private String fileName;
 

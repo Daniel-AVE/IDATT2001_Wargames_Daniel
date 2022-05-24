@@ -1,2 +1,5 @@
-package edu.ntnu.idatt2001.Listener;public class Listener {
+package edu.ntnu.idatt2001.Listener;
+
+public interface Listener {
+    void update();
 }

@@ -12,30 +12,26 @@ public class ArmyReaderTest {
 
     @Test
     void testReadArmyFromFile() {
-        ArmyReader armyReader = new ArmyReader();
         Army army = null;
 
         try {
-            army = armyReader.readArmyFromFile(new File(path + "orc_army.csv"));
+            army = ArmyReader.readArmyFromFile(new File(path + "Orc.csv"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         assertDoesNotThrow(() -> {
-            armyReader.readArmyFromFile(new File(path + "orc_army.csv"));
+            ArmyReader.readArmyFromFile(new File(path + "Orc.csv"));
         });
 
-        assert(army != null);
+        assertTrue(army != null);
         assertEquals(901, army.getUnitSizeByInt());
     }
 
     @Test
     void testReadArmyFromWrongFileFormat() {
-        ArmyReader armyReader = new ArmyReader();
-        Army army = null;
-
         assertThrows(IOException.class, () -> {
-            armyReader.readArmyFromFile(new File(path + "testReader.txt"));
+            ArmyReader.readArmyFromFile(new File(path + "testReader.txt"));
         });
     }
 
@@ -55,5 +51,20 @@ public class ArmyReaderTest {
         assertThrows(IOException.class, () -> {
             armyReader.readArmyFromFile(new File(path + "Empty:army.csv"));
         });
+    }
+
+    @Test
+    void testReturnTrueIfArmyExists() {
+
+        Army army = new Army("Human");
+
+        assertTrue(ArmyReader.armyExists(army));
+    }
+
+    @Test
+    void testReturnFalseIfArmyDoesNotExist() {
+        Army army = new Army("Alien");
+
+        assertFalse(ArmyReader.armyExists(army));
     }
 }

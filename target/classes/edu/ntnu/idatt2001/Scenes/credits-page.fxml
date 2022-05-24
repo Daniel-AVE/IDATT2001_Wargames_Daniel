@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
@@ -21,7 +20,7 @@
          <menus>
             <Menu mnemonicParsing="false" text="Home">
                <items>
-                  <MenuItem fx:id="homeButton" disable="true" mnemonicParsing="false" onAction="#onHomeButtonPressed" text="Home" />
+                  <MenuItem fx:id="homeButton" mnemonicParsing="false" onAction="#onHomeButtonPressed" text="Home" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="More">
@@ -41,54 +40,50 @@
             <HBox prefHeight="800.0" prefWidth="1200.0" VBox.vgrow="ALWAYS">
                <children>
                   <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: black;" HBox.hgrow="ALWAYS" />
-                  <ScrollPane focusTraversable="false" hbarPolicy="NEVER" maxWidth="1200.0" prefHeight="631.0" prefWidth="1200.0" stylesheets="@../css/style.css">
-                     <content>
-                        <VBox prefHeight="700.0" prefWidth="1184.0" style="-fx-background-color: #13161d;">
+                  <VBox prefHeight="2000.0" prefWidth="2000.0" style="-fx-background-color: #13161d;">
+                     <children>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="132.0" styleClass="dialog-pane" stylesheets="@../css/style.css">
                            <children>
-                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="132.0" styleClass="dialog-pane" stylesheets="@../css/style.css">
+                              <HBox maxHeight="137.0" prefHeight="109.0" prefWidth="1184.0" style="-fx-background-color: #13161d;" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <HBox maxHeight="137.0" prefHeight="109.0" prefWidth="1184.0" style="-fx-background-color: #13161d;" VBox.vgrow="ALWAYS">
-                                       <children>
-                                          <Text fill="#6ea4bf" strokeType="OUTSIDE" strokeWidth="0.0" text="Medieval War Games" HBox.hgrow="ALWAYS">
-                                             <font>
-                                                <Font name="Yu Gothic Medium" size="35.0" />
-                                             </font>
-                                             <HBox.margin>
-                                                <Insets bottom="10.0" left="60.0" top="40.0" />
-                                             </HBox.margin>
-                                          </Text>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets />
-                                       </VBox.margin>
-                                    </HBox>
-                                    <VBox prefHeight="0.0" prefWidth="1200.0" />
-                                    <VBox prefHeight="23.0" prefWidth="1200.0" />
-                                    <HBox prefHeight="0.0" prefWidth="1183.0" />
-                                 </children>
-                              </VBox>
-                              <VBox>
-                                 <children>
-                                    <TextArea editable="false" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="345.0" prefWidth="1064.0" styleClass="text-area" text="Medieval Game Of War is a simulation based game created by Daniel Evensen through IDATT2001 - Programmering 2, &#10;at the Computer Science course at the Norwegian University of Science and Technology.&#10;&#10;Throughout the project, some inspiration has been drawn from other projects. This page will highlight credits for &#10;the inspiration drawn, as well as give credit where credit is due for using royalty free images.&#10;&#10;Code inspiration:&#10;* Previous project in IDATT1002 - Systemutvikling 1&#10;&#10;Images:&#10;* &quot;https://www.freepik.com/vectors/videogame&quot; Videogame vector created by freepik - www.freepik.com&#10;">
+                                    <Text fill="#6ea4bf" strokeType="OUTSIDE" strokeWidth="0.0" text="Medieval War Games" HBox.hgrow="ALWAYS">
                                        <font>
-                                          <Font name="Arial" size="16.0" />
+                                          <Font name="Yu Gothic Medium" size="35.0" />
                                        </font>
-                                       <VBox.margin>
-                                          <Insets left="60.0" right="60.0" />
-                                       </VBox.margin>
-                                       <cursor>
-                                          <Cursor fx:constant="DISAPPEAR" />
-                                       </cursor>
-                                    </TextArea>
+                                       <HBox.margin>
+                                          <Insets bottom="10.0" left="60.0" top="40.0" />
+                                       </HBox.margin>
+                                    </Text>
                                  </children>
-                              </VBox>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <VBox prefHeight="0.0" prefWidth="1200.0" />
+                              <VBox prefHeight="23.0" prefWidth="1200.0" />
+                              <HBox prefHeight="0.0" prefWidth="1183.0" />
                            </children>
-                           <cursor>
-                              <Cursor fx:constant="DEFAULT" />
-                           </cursor>
                         </VBox>
-                     </content>
-                  </ScrollPane>
+                        <VBox prefWidth="2162.0">
+                           <children>
+                              <TextArea editable="false" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="419.0" prefWidth="1064.0" styleClass="text-area" text="Medieval Game Of War is a simulation based game created by Daniel Evensen through IDATT2001 - Programmering 2, &#10;at the Computer Science course at the Norwegian University of Science and Technology.&#10;&#10;Throughout the project, some inspiration has been drawn from other projects. This page will highlight credits for &#10;the inspiration drawn, as well as give credit where credit is due for using royalty free images.&#10;&#10;Code inspiration:&#10;* Previous project in IDATT1002 - Systemutvikling 1&#10;* Example codes released by teachers on Blackboard in IDATT2001&#10;&#10;Images:&#10;* &quot;https://www.freepik.com/vectors/videogame&quot; Videogame vector created by freepik - www.freepik.com&#10;* &quot;https://www.freepik.com/vectors/cartoon-frame&quot; Cartoon frame vector created by brgfx - www.freepik.com&#10;* &quot;https://www.freepik.com/vectors/game-coin&quot; Game coin vector created by macrovector - www.freepik.com&#10;* &quot;https://www.vecteezy.com/vector-art/153834-rpg-game-element-vectors, RPG Game Element Vectors, Vectors by Vecteezy&#10;* &quot;https://www.freepik.com/vectors/parallax-background&quot; Parallax background vector created by upklyak - www.freepik.com&#10;* &quot;https://www.freepik.com/vectors/fantasy-forest&quot; Fantasy forest vector created by ddraw - www.freepik.com&#10;* &quot;https://www.freepik.com/vectors/river&quot; River vector created by upklyak - www.freepik.com&#10;">
+                                 <font>
+                                    <Font name="Arial" size="16.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="60.0" right="60.0" />
+                                 </VBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="DISAPPEAR" />
+                                 </cursor>
+                              </TextArea>
+                           </children>
+                        </VBox>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </VBox>
                   <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: black;" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
