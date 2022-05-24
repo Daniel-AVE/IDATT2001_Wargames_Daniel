@@ -232,15 +232,15 @@ public class NewArmyController {
                 "Health: 100\n" +
                 "Attack: 18\n" +
                 "Attack-Bonus: 12-6-0\n" +
-                "Armor: 13 \n" +
+                "Armor: 8 \n" +
                 "Resist-Bonus: 8-5-0" +
                 "Extra attack bonus in hill and plains\n");
 
         swordmasterTooltip.setText("Swordmaster:\n" +
                 "Health: 100\n" +
-                "Attack: 18\n" +
+                "Attack: 20\n" +
                 "Attack-Bonus: 0-7-13" +
-                "Armor: 16 \n" +
+                "Armor: 10 \n" +
                 "Resist-Bonus: 0-2-4" +
                 "Extra resist bonus in forest");
 
