@@ -62,7 +62,7 @@
                                   </VBox>
                                   <VBox>
                                       <children>
-                              <TextArea editable="false" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="254.0" prefWidth="1064.0" styleClass="text-area" text="Welcome to Medieval War Games, a simulation based game&#10;&#10;In this game, you get dealt a certain amount of gold, which you can use to set up your own army&#10;and battle against an enemy army.&#10;&#10;To get started: Hit the &quot;New battle&quot; button in the bottom right corner&#10;&#10;or&#10;&#10;Head to More:Credits to look at credits for this application&#10;">
+                              <TextArea editable="false" focusTraversable="false" minHeight="-Infinity" minWidth="-Infinity" mouseTransparent="true" prefHeight="300.0" prefWidth="1080.0" styleClass="text-area" text="Welcome to Medieval War Games, a simulation based game&#10;&#10;In this game, you get dealt a certain amount of gold, which you can use to set up your own army&#10;and battle against an enemy army.&#10;&#10;To get started: Hit the &quot;New battle&quot; button in the bottom right corner&#10;&#10;or&#10;&#10;Head to More:Credits to look at credits for this application&#10;&#10;Tips:&#10;You can get information about each unit by hovering over the text next to the image of the unit">
                                  <font>
                                     <Font name="Arial" size="16.0" />
                                  </font>
