@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" styleClass="dialog-pane" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ntnu.idatt2001.controllers.NewArmyController">
+    <top>
+        <MenuBar fx:id="menuBar" BorderPane.alignment="CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="Home">
+               <items>
+                  <MenuItem fx:id="homeButton" mnemonicParsing="false" onAction="#onHomeButtonPressed" text="Home" />
+               </items></Menu>
+                <Menu mnemonicParsing="false" text="More">
+               <items>
+                  <MenuItem fx:id="creditsButton" mnemonicParsing="false" onAction="#onCreditsButtonPressed" text="Credits" />
+               </items></Menu>
+            </menus>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+        </MenuBar>
+    </top>
+    <center>
+        <VBox prefHeight="800.0" prefWidth="1200.0" styleClass="dialog-pane" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
+            <children>
+                <HBox prefHeight="2000.0" prefWidth="2000.0" VBox.vgrow="ALWAYS">
+                    <children>
+                          <VBox prefHeight="700.0" prefWidth="1184.0" style="-fx-background-color: #13161d;">
+                              <children>
+                                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="132.0" styleClass="dialog-pane" stylesheets="@../css/style.css">
+                                      <children>
+                                          <HBox maxHeight="137.0" prefHeight="109.0" prefWidth="1184.0" style="-fx-background-color: #13161d;" VBox.vgrow="ALWAYS">
+                                              <children>
+                                                  <Text fill="#6ea4bf" strokeType="OUTSIDE" strokeWidth="0.0" text="New Army" HBox.hgrow="ALWAYS">
+                                                      <font>
+                                                          <Font size="50.0" />
+                                                      </font>
+                                                      <HBox.margin>
+                                                          <Insets bottom="10.0" left="60.0" top="40.0" />
+                                                      </HBox.margin>
+                                                  </Text>
+                                              </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                          </HBox>
+                              <VBox prefHeight="200.0" prefWidth="100.0" />
+                                          <VBox prefHeight="0.0" prefWidth="1200.0" />
+                                          <VBox prefHeight="23.0" prefWidth="1200.0" />
+                                          <HBox prefHeight="0.0" prefWidth="1183.0" />
+                                      </children>
+                                  </VBox>
+                                  <VBox />
+                        <HBox prefHeight="45.0" prefWidth="1184.0">
+                           <children>
+                              <Label text="Gold:" textFill="#6ea4bf">
+                                 <HBox.margin>
+                                    <Insets left="60.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="36.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/GoldPouch.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="30.0" top="10.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="goldCoins" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="123.0" text="10 000" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <HBox prefHeight="50.0" prefWidth="86.0" />
+                              <Label prefHeight="50.0" prefWidth="227.0" text="Army Name:" textFill="#6ea4bf">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font size="40.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="nameOfArmy">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button fx:id="armyNameAvailability" mnemonicParsing="false" onAction="#onCheckArmyNameButton" text="Check army name availability">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <HBox prefHeight="50.0" prefWidth="5.0" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="20.0" prefWidth="100.0" />
+                        <HBox prefHeight="45.0" prefWidth="1184.0">
+                           <children>
+                              <ImageView fitHeight="35.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Infantry.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="60.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label text="Infantry Unit:" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                                 <tooltip>
+                                    <Tooltip fx:id="infantryTooltip" contentDisplay="TOP" text="Attack: 15, Attack-Bonus: 2, Armor: 10, Resist-Bonus: 1, Extra bonus in forest" />
+                                 </tooltip>
+                              </Label>
+                              <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/GoldCoin.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="82.0" top="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="goldCoins1" text="15" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <HBox prefHeight="45.0" prefWidth="107.0" HBox.hgrow="ALWAYS" />
+                              <Label text="Name:" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="infantryName">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Label text="Amount:" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="40.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ChoiceBox fx:id="infantryNumber" prefHeight="33.0" prefWidth="50.0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                              <Button fx:id="infantryAddButton" mnemonicParsing="false" onAction="#onInfantryAddButtonPressed" text="Add">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="infantryRemoveButton" mnemonicParsing="false" onAction="#onInfantryRemoveButtonPressed" text="Remove">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Label fx:id="infantryTotal" minWidth="-Infinity" prefHeight="30.0" prefWidth="65.0" text="0" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" right="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="20.0" prefWidth="100.0" />
+                        <HBox prefHeight="45.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="34.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Archer.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label text="Ranged Unit:" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="5.0" top="5.0" />
+                                 </HBox.margin>
+                                 <tooltip>
+                                    <Tooltip fx:id="rangedTooltip" text="Attack: 15, Attack-Bonus: 3, Armor: 8, Resist-Bonus: 6-4-2, Extra attack bonus in hill, lower attack bonus in forest" />
+                                 </tooltip>
+                              </Label>
+                              <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/GoldCoin.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="80.0" top="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="goldCoins11" text="15" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <HBox prefHeight="45.0" prefWidth="99.0" HBox.hgrow="ALWAYS" />
+                              <Label text="Name:" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="rangedName">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Label text="Amount:" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="40.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ChoiceBox fx:id="rangedNumber" prefWidth="50.0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                              <Button fx:id="rangedAddButton" mnemonicParsing="false" onAction="#onRangedAddButtonPressed" text="Add">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="rangedRemoveButton" mnemonicParsing="false" onAction="#onRangedRemoveButtonPressed" text="Remove">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Label fx:id="rangedTotal" minWidth="-Infinity" prefHeight="30.0" prefWidth="65.0" text="0" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" right="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="20.0" prefWidth="100.0" />
+                        <HBox prefHeight="45.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="29.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Cavalry.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="47.0" top="3.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label text="Cavalry Unit:" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="5.0" top="5.0" />
+                                 </HBox.margin>
+                                 <tooltip>
+                                    <Tooltip fx:id="cavalryTooltip" text="Attack: 20, Attack-Bonus: 6-2, Armor: 12, Resist-Bonus: 2. Extra attack bonus in plains. Loss of resist bonus in forest" />
+                                 </tooltip>
+                              </Label>
+                              <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/GoldCoin.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="82.0" top="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="goldCoins12" text="17" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <HBox prefHeight="45.0" prefWidth="61.0" HBox.hgrow="ALWAYS" />
+                              <Label text="Name:" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="cavalryName">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Label text="Amount:" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="40.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ChoiceBox fx:id="cavalryNumber" prefWidth="50.0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                              <Button fx:id="cavalryAddButton" mnemonicParsing="false" onAction="#onCavalryAddButtonPressed" text="Add">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="cavalryRemoveButton" mnemonicParsing="false" onAction="#onCavalryRemoveButtonPressed" text="Remove">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Label fx:id="cavalryTotal" minWidth="-Infinity" prefWidth="65.0" text="0" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" right="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="20.0" prefWidth="100.0" />
+                        <HBox prefHeight="45.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="37.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Commander.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="47.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label text="Commander Unit:" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                                 <tooltip>
+                                    <Tooltip fx:id="commanderTooltip" text="Attack: 25, Attack-Bonus: 6-2, Armor: 15, Resist-Bonus: 2. Extra attack bonus in plains. Loss of resist bonus in forest" />
+                                 </tooltip>
+                              </Label>
+                              <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/GoldCoin.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="40.0" top="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="goldCoins13" text="22" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <HBox prefHeight="45.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                              <Label text="Name:" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="commanderName">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Label text="Amount:" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="40.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ChoiceBox fx:id="commanderNumber" prefWidth="50.0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                              <Button fx:id="commanderAddButton" mnemonicParsing="false" onAction="#onCommanderAddButtonPressed" text="Add">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="commanderRemoveButton" mnemonicParsing="false" onAction="#onCommanderRemoveButtonPressed" text="Remove">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Label fx:id="commanderTotal" minWidth="-Infinity" prefWidth="65.0" text="0" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" right="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="20.0" prefWidth="100.0" />
+                        <HBox prefHeight="45.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="36.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Wizard.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label text="Wizard Unit:" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                                 <tooltip>
+                                    <Tooltip fx:id="wizardTooltip" text="Attack: 18, Attack-Bonus: 12-6-0, Armor: 13, Resist-Bonus: 8-5-0. Extra attack bonus in plains and hills" />
+                                 </tooltip>
+                              </Label>
+                              <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/GoldCoin.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="85.0" top="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="goldCoins14" text="19" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <HBox prefHeight="45.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                              <Label text="Name:" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="wizardName">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Label text="Amount:" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="40.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ChoiceBox fx:id="wizardNumber" prefWidth="50.0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                              <Button fx:id="wizardAddButton" mnemonicParsing="false" onAction="#onWizardAddButtonPressed" text="Add">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="wizardRemoveButton" mnemonicParsing="false" onAction="#onWizardRemoveButtonPressed" text="Remove">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Label fx:id="wizardTotal" minWidth="-Infinity" prefWidth="65.0" text="0" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" right="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="20.0" prefWidth="100.0" />
+                        <HBox prefHeight="45.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="34.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/Swordmaster.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="55.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label text="Swordmaster Unit:" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                                 <tooltip>
+                                    <Tooltip fx:id="swordmasterTooltip" text="Attack: 20, Attack-Bonus: 0-7-13, Armor: 16, Resist-Bonus: 0-2-4. Extra resist bonus in forest." />
+                                 </tooltip>
+                              </Label>
+                              <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/GoldCoin.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="33.0" top="5.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <Label fx:id="goldCoins141" text="20" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <HBox prefHeight="45.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                              <Label text="Name:" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="swordmasterName">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Label text="Amount:" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="40.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ChoiceBox fx:id="swordmasterNumber" prefWidth="50.0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </ChoiceBox>
+                              <Button fx:id="swordmasterAddButton" mnemonicParsing="false" onAction="#onSwordmasterAddButtonPressed" text="Add">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="swordmasterRemoveButton" mnemonicParsing="false" onAction="#onSwordmasterRemoveButtonPressed" text="Remove">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Label fx:id="swordmasterTotal" minWidth="-Infinity" prefWidth="65.0" text="0" textFill="#6ea4bf">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" right="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="20.0" prefWidth="100.0" />
+                        <HBox prefHeight="95.0" prefWidth="1184.0">
+                           <children>
+                              <Label fx:id="warningLabel" alignment="CENTER" prefHeight="152.0" prefWidth="1184.0" textFill="RED">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                           </children></HBox>
+                              </children>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                          </VBox>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </center>
+   <bottom>
+      <VBox prefHeight="46.0" prefWidth="1200.0">
+         <children>
+            <HBox VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox HBox.hgrow="ALWAYS">
+                     <children>
+                        <Button fx:id="exitButton" mnemonicParsing="false" onAction="#onExitButtonPressed" prefHeight="33.0" prefWidth="102.0" text="EXIT">
+                           <HBox.margin>
+                              <Insets left="10.0" top="3.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children></HBox>
+                  <Button fx:id="createArmyButton" mnemonicParsing="false" onAction="#onCreateArmyButtonPressed" text="Create army">
+                     <HBox.margin>
+                        <Insets right="10.0" top="3.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="battleButton" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" onAction="#onBattleButtonPressed" text="BATTLE">
+                     <HBox.margin>
+                        <Insets right="10.0" top="3.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
+</BorderPane>
