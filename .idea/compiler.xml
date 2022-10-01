@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="IDATT2001_Wargames_Daniel" />
+        <module name="IDATT2001_Wargames_Daniel_E" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="IDATT2001_Wargames_Daniel_E" target="16" />
+    </bytecodeTargetLevel>
   </component>
 </project>
